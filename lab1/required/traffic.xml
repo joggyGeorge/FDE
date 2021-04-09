@@ -1,0 +1,17 @@
+<design name="traffic">
+ <port name="clk" position="P77"/>
+ <port name="rst_n" position="P151"/>
+ <port name="nr" position="P7"/>
+ <port name="ny" position="P6"/>
+ <port name="ng" position="P5"/>
+ <port name="sr" position="P4"/>
+ <port name="sy" position="P9"/>
+ <port name="sg" position="P8"/>
+ <port name="wr" position="P16"/>
+ <port name="wy" position="P15"/>
+ <port name="wg" position="P11"/>
+ <port name="er" position="P10"/>
+ <port name="ey" position="P20"/>
+ <port name="eg" position="P18"/>
+
+</design>
