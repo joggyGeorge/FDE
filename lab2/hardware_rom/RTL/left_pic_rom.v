@@ -1,19 +1,19 @@
 //-------------------------------------------------------------------
 //
 //  COPYRIGHT (C) 2012, Renfeng Dou, Fudan University
-//   
-//  THIS FILE MAY NOT BE MODIFIED OR REDISTRIBUTED WITHOUT THE 
+//
+//  THIS FILE MAY NOT BE MODIFIED OR REDISTRIBUTED WITHOUT THE
 //  EXPRESSED WRITTEN CONSENT OF Renfeng Dou
-//  
-//  Renfeng Dou			    email:12212020002@fudan.edu.cn  
-//  Fudan University          www.fudan.edu.cn    
+//
+//  Renfeng Dou			    email:12212020002@fudan.edu.cn
+//  Fudan University          www.fudan.edu.cn
 //-------------------------------------------------------------------
 // Filename       : left_pic_rom.v
 // Author         : Renfeng Dou
 // Created        : 2012/10/25 0:00:00
 // Description    : ROM file for VeriInstrument Graphic LCD
-//               
-//------------------------------------------------------------------- 
+//
+//-------------------------------------------------------------------
 
 //synopsys_translate_off
 `timescale 1ns/1ns
@@ -369,7 +369,7 @@ begin
           counter_r   <= 10'd0;
       end
   else
-      begin
+      begin                         // sync = 0 & en_i = 0 then couter++
           length_o  <= 10'd313;
           if(sync_i)
               counter_r   <= 10'd0;

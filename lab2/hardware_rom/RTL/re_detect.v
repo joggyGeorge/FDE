@@ -1,20 +1,20 @@
 //-------------------------------------------------------------------
-//                                                                 
+//
 //  COPYRIGHT (C) 2012, Renfeng Dou, Fudan University
-//                                                                  
-//  THIS FILE MAY NOT BE MODIFIED OR REDISTRIBUTED WITHOUT THE      
+//
+//  THIS FILE MAY NOT BE MODIFIED OR REDISTRIBUTED WITHOUT THE
 //  EXPRESSED WRITTEN CONSENT OF Renfeng Dou
-//                                                                  
-//  Renfeng Dou				email:12212020002@fudan.edu.cn     
-//  Fudan University        www.fudan.edu.cn              
+//
+//  Renfeng Dou				email:12212020002@fudan.edu.cn
+//  Fudan University        www.fudan.edu.cn
 //-------------------------------------------------------------------
 // Filename       : lcd_name_top.v
 // Author         : Renfeng Dou
 // Created        : 2012-10-23
-// Description    : 
-//               
-// $Id$ 
-//------------------------------------------------------------------- 
+// Description    : sample根据sig_i左移 & sig_o = sample(01)
+//
+// $Id$
+//-------------------------------------------------------------------
 
 //synopsys_translate_off
 `timescale 1ns/1ns
@@ -28,41 +28,41 @@ module re_detect(
 );
 
 // ********************************************
-//                                             
-//    INPUT / OUTPUT DECLARATION               
-//                                             
+//
+//    INPUT / OUTPUT DECLARATION
+//
 // ********************************************
 input		clk;
 input		rst_n;
 input		sig_i;
 output		sig_o;
 
-// ********************************************      
-//                                             
-//    Register DECLARATION                         
-//                                             
+// ********************************************
+//
+//    Register DECLARATION
+//
 // ********************************************
 reg [1:0]	sample_r;
 
 // ********************************************
-//                                             
-//    Wire DECLARATION                         
-//                                             
+//
+//    Wire DECLARATION
+//
 // ********************************************
 reg			sig_o;
 
 // *******************************************
-//                                             
-//    Combinational Logic                         
-//                                             
+//
+//    Combinational Logic
+//
 // ********************************************
 always @ (sample_r)
 	sig_o	= (~sample_r[1])&sample_r[0];
 
 // ********************************************
-//                                             
-//    Sequential Logic                         
-//                                             
+//
+//    Sequential Logic
+//
 // ********************************************
 always @ (posedge clk or negedge rst_n)
 begin
@@ -72,11 +72,12 @@ begin
 		end
 	else
 		begin
-			sample_r	<= {sample_r[0],sig_i};
+			sample_r	<= {sample_r[0],sig_i};	// 左移
 		end
 end
 
-
+// if sig_i = refresh(clock) then 00-->01-->10-->01
+// if sig_i = manual(button high active) then 00-->01-->10->01
 
 
 endmodule

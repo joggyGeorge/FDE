@@ -1,0 +1,21 @@
+<design name="top">
+ <port name="clk" position="P77"/>
+ <port name="rst_n" position="P151"/>
+ <port name="auto_i" position="P148"/>
+ <port name="manual_i" position="P150"/>
+ <port name="graphic_lcd_d[0]" position="P7"/>
+ <port name="graphic_lcd_d[1]" position="P6"/>
+ <port name="graphic_lcd_d[2]" position="P5"/>
+ <port name="graphic_lcd_d[3]" position="P4"/>
+ <port name="graphic_lcd_d[4]" position="P9"/>
+ <port name="graphic_lcd_d[5]" position="P8"/>
+ <port name="graphic_lcd_d[6]" position="P16"/>
+ <port name="graphic_lcd_d[7]" position="P15"/>
+ <port name="graphic_lcd_rw" position="P11"/>
+ <port name="graphic_lcd_en" position="P10"/>
+ <port name="graphic_lcd_di" position="P20"/>
+ <port name="graphic_lcd_rst" position="P18"/>
+ <port name="graphic_lcd_cs1" position="P17"/>
+ <port name="graphic_lcd_cs2" position="P22"/>
+
+</design>

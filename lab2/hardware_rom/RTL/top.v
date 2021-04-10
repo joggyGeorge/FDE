@@ -1,20 +1,20 @@
 //-------------------------------------------------------------------
-//                                                                 
+//
 //  COPYRIGHT (C) 2012, Renfeng Dou, Fudan University
-//                                                                  
-//  THIS FILE MAY NOT BE MODIFIED OR REDISTRIBUTED WITHOUT THE      
+//
+//  THIS FILE MAY NOT BE MODIFIED OR REDISTRIBUTED WITHOUT THE
 //  EXPRESSED WRITTEN CONSENT OF Renfeng Dou
-//                                                                  
-//  Renfeng Dou				email:12212020002@fudan.edu.cn     
-//  Fudan University        www.fudan.edu.cn              
+//
+//  Renfeng Dou				email:12212020002@fudan.edu.cn
+//  Fudan University        www.fudan.edu.cn
 //-------------------------------------------------------------------
 // Filename       : lcd_name_top.v
 // Author         : Renfeng Dou
 // Created        : 2012-10-23
-// Description    : 
-//               
-// $Id$ 
-//------------------------------------------------------------------- 
+// Description    :
+//
+// $Id$
+//-------------------------------------------------------------------
 
 //synopsys_translate_off
 `timescale 1ns/1ns
@@ -35,14 +35,14 @@ module top(
 );
 
 // ********************************************
-//                                             
-//    INPUT / OUTPUT DECLARATION               
-//                                             
+//
+//    INPUT / OUTPUT DECLARATION
+//
 // ********************************************
 input			clk;
 input			rst_n;
 input			auto_i;
-input			manual_i;
+input			manual_i;	// high active button
 output [7:0]	graphic_lcd_d;
 output			graphic_lcd_rw;
 output			graphic_lcd_en;
@@ -52,12 +52,12 @@ output			graphic_lcd_cs1;
 output			graphic_lcd_cs2;
 
 // ********************************************
-//                                             
-//    Wire DECLARATION                         
-//                                             
+//
+//    Wire DECLARATION
+//
 // ********************************************
-wire		refresh;
-wire		refresh_w;
+wire		refresh;	// clock output of divider
+wire		refresh_w;	// sig_o of re-detect based on refresh|manual(real refresh)
 
 wire [8:0]	left_rom_lcd_data_w;
 wire [8:0]	right_rom_lcd_data_w;
@@ -78,9 +78,9 @@ wire		clk_on_w;
 wire		mode;
 
 // ********************************************
-//                                             
-//    Sub Modules                              
-//                                             
+//
+//    Sub Modules
+//
 // ********************************************
 
 
@@ -144,8 +144,8 @@ switch switch1(
 				.left_rom_d_o(left_rom_lcd_data_w),
 				.left_rom_length_o(left_rom_len_w),
 				.right_rom_d_o(right_rom_lcd_data_w),
-				.right_rom_length_o(right_rom_len_w),				
-				.left_sync_i(graphic_lcd_rst),				
+				.right_rom_length_o(right_rom_len_w),
+				.left_sync_i(graphic_lcd_rst),
 				.right_sync_i(sync_right),
 				.left_sync_o(sync_left1),
 				.right_sync_o(sync_right1)
