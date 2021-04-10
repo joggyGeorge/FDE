@@ -11,11 +11,11 @@ module display(
  output reg [7:0] lcd_db,
  output lcd_rst         // posedge active
  );
- 
+
  reg  [7:0] tmp1;
  reg  [7:0] tmp2;
  reg  [7:0] cnt_lcd;    // counter
- wire  rst;
+ wire       rst;
 // ------------
 // Text LCD Main Circuit
 // ------------
@@ -24,13 +24,8 @@ assign rst = rst_n;
 assign lcd_rw = 1'b0;
 assign lcd_rs = 1'b1;
 assign lcd_rst = rst;
+assign lcd_en = cnt_lcd[6] ? 0 : cnt_lcd[0]; // wait after display
 
-always @(posedge clk or posedge rst)
-   if (rst) lcd_en <= 0;
-   else begin
-      if (~cnt_lcd[6]) lcd_en <= cnt_lcd[0];
-      else lcd_en <= 0; // wait to disp
-   end
 //assign lcd_en = cnt_lcd[0];   // transfer data at negedge
 
 always @(posedge clk or posedge rst)
@@ -42,7 +37,7 @@ always @(posedge clk or posedge rst)
 always @(posedge clk or posedge rst)
    if (rst) cnt_lcd <= 0;  // reset
    else  cnt_lcd <= cnt_lcd + 1;
-      
+
 
 always @(cnt_lcd)
    case(cnt_lcd[5:1])   // 5 bits stand for 2^5=32 states
@@ -98,7 +93,7 @@ always @(cnt_lcd)
    'hC : tmp2 = 'h49; // i
    'hD : tmp2 = 'h00; // space
    'hE : tmp2 = 'h0B; // +
-   'hF : tmp2 = 'h0B; // + 
+   'hF : tmp2 = 'h0B; // +
    'h10 : tmp2 = 'h0B; // +
    'h11 : tmp2 = 'h00; // space
    'h12 : tmp2 = 'h39; // Y
