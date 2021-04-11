@@ -26,11 +26,11 @@ int main()
 	memset(WriteBuffer, 0, DATA_COUNT * sizeof(WORD));
 	memset(ReadBuffer, 0, DATA_COUNT * sizeof(WORD));
 
-	const int ClockCount = 70; // run 70 clock cycle
+	const int ClockCount = 170; // run 170 clock cycle
 	const int iBoard = 0;
 	const char* SerialNo = "F4YF-K2II-Y0Z0-AT05-F805-A478";
-	const char* BitFile = R"(H:\FDE\lab4\hardware\FDE\lab4_hardware_fde_dc.bit)";
-	hDLL = LoadLibrary(L"VLFD.dll");
+	const char* BitFile = R"(..\..\hardware\FDE\lab4_hardware_fde_dc.bit)";
+	hDLL = LoadLibrary(L".\\DLL\\win\\x64\\VLFD.dll");
 	if (!hDLL) {
 		cout << "No Library\n";
 		return -1;
@@ -47,7 +47,6 @@ int main()
 		cout << GetLastError() << endl;
 		return -1;
 	}
-
 	if (!test_program(iBoard, BitFile))
 	{
 		cout << "program error\n";
@@ -61,24 +60,24 @@ int main()
 		return -1;
 	}
 
+	printf ("index\tinput\tdata\toutput\n");
+
+	// map of Buffer is shown in xml
 	for (int clock = 0; clock < ClockCount; clock++)
 	{
 		if (clock < 2)
 			WriteBuffer[0] = 0x00; // reset = 0
 		else
+		{
 			WriteBuffer[0] = 0x01; // reset = 1
+			WriteBuffer[0] += 2 * clock;
+		}
+
+		WORD data = WriteBuffer[0] >> 1;
 
 		for (int i = 0; i < DATA_COUNT; i++)
 			ReadBuffer[i] = 0x00;
-		/*
-			for (USHORT i = 0; i < DataCount; i++)
-				WriteBuffer[i] = 1;
 
-			WORD* writeptr = WriteBuffer;
-			WORD* readptr = ReadBuffer;
-			for ( unsigned i = 0; i != DATA_COUNT; i++, writeptr++, readptr++)
-			{
-			*/
 		if (!test_write_read_data(iBoard, WriteBuffer, ReadBuffer, DATA_COUNT))
 		{
 			cout << "write or read error\n";
@@ -86,15 +85,8 @@ int main()
 			return -1;
 		}
 
-		WORD hr_out = ReadBuffer[0] & 0x000F; // pin 0~3
-		WORD min_out = (ReadBuffer[0] & 0x03F0) >> 4; // pin 4~9
-		WORD sec_out = (ReadBuffer[0] & 0xFC00) >> 10;  // pin 10~15
-		WORD hr_alarm = ReadBuffer[1] & 0x000F;  // pin 16~19
-		WORD min_alarm = (ReadBuffer[1] & 0x03F0) >> 4; // pin 20~25
-		WORD alarm = (ReadBuffer[1] & 0x0400) >> 10;// pin 26
-
-		printf("[%d] hr_out[%d] min_out[%d] sec_out[%d] hr_alarm[%d] min_alarm[%d] alarm[%d]\n",
-			clock, hr_out, min_out, sec_out, hr_alarm, min_alarm, alarm);
+		printf("[%d]\t[%04X]\t[%04X]\t[%04X]\n",
+			clock, WriteBuffer[0], data, ReadBuffer[0]);
 	}
 
 	if (!test_io_close(iBoard))
@@ -103,7 +95,6 @@ int main()
 		cout << test_get_error(iBoard) << endl;
 		return -1;
 	}
-
 	cout << "\nsuccess\n";
 	if (hDLL)
 		FreeLibrary(hDLL);

@@ -1,0 +1,37 @@
+<design name="inverter">
+ <port name="clk" position="P77"/>
+ <port name="rstn" position="P151"/>
+ <port name="di[0]" position="P148"/>
+ <port name="di[1]" position="P150"/>
+ <port name="di[2]" position="P152"/>
+ <port name="di[3]" position="P160"/>
+ <port name="di[4]" position="P161"/>
+ <port name="di[5]" position="P162"/>
+ <port name="di[6]" position="P163"/>
+ <port name="di[7]" position="P164"/>
+ <port name="di[8]" position="P165"/>
+ <port name="di[9]" position="P166"/>
+ <port name="di[10]" position="P169"/>
+ <port name="di[11]" position="P173"/>
+ <port name="di[12]" position="P174"/>
+ <port name="di[13]" position="P175"/>
+ <port name="di[14]" position="P191"/>
+ <port name="di[15]" position="P120"/>
+ <port name="do[0]" position="P7"/>
+ <port name="do[1]" position="P6"/>
+ <port name="do[2]" position="P5"/>
+ <port name="do[3]" position="P4"/>
+ <port name="do[4]" position="P9"/>
+ <port name="do[5]" position="P8"/>
+ <port name="do[6]" position="P16"/>
+ <port name="do[7]" position="P15"/>
+ <port name="do[8]" position="P11"/>
+ <port name="do[9]" position="P10"/>
+ <port name="do[10]" position="P20"/>
+ <port name="do[11]" position="P18"/>
+ <port name="do[12]" position="P17"/>
+ <port name="do[13]" position="P22"/>
+ <port name="do[14]" position="P21"/>
+ <port name="do[15]" position="P23"/>
+
+</design>
