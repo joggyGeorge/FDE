@@ -6,11 +6,11 @@ using namespace std;
 // Single clock run 64 bits data && WORDx4=64 bits
 #define DATA_COUNT 4
 
-typedef BOOL		(WINAPI* myIOOpen)			(int, const char*);
-typedef const char* (WINAPI* GetError)			(int);
-typedef BOOL		(WINAPI* myProgram)			(int, const char*);
-typedef BOOL		(WINAPI* myIOClose)			(int);
-typedef BOOL		(WINAPI* myWriteReadData)	(int, WORD*, WORD*, unsigned);
+typedef BOOL(WINAPI* myIOOpen)			(int, const char*);
+typedef const char* (WINAPI* GetError)	(int);
+typedef BOOL(WINAPI* myProgram)			(int, const char*);
+typedef BOOL(WINAPI* myIOClose)			(int);
+typedef BOOL(WINAPI* myWriteReadData)	(int, WORD*, WORD*, unsigned);
 
 int main()
 {
@@ -21,8 +21,8 @@ int main()
 	myIOClose		test_io_close;
 	myWriteReadData test_write_read_data;
 
-	WORD	WriteBuffer	[DATA_COUNT];
-	WORD	ReadBuffer	[DATA_COUNT];
+	WORD	WriteBuffer[DATA_COUNT];
+	WORD	ReadBuffer[DATA_COUNT];
 	memset(WriteBuffer, 0, DATA_COUNT * sizeof(WORD));
 	memset(ReadBuffer, 0, DATA_COUNT * sizeof(WORD));
 
@@ -36,11 +36,11 @@ int main()
 		return -1;
 	}
 
-	test_io_open			=	(myIOOpen)GetProcAddress(hDLL, "VLFD_IO_Open");
-	test_get_error			=	(GetError)GetProcAddress(hDLL, "VLFD_GetLastErrorMsg");
-	test_program			=	(myProgram)GetProcAddress(hDLL, "VLFD_ProgramFPGA");
-	test_io_close			=	(myIOClose)GetProcAddress(hDLL, "VLFD_IO_Close");
-	test_write_read_data	=	(myWriteReadData)GetProcAddress(hDLL, "VLFD_IO_WriteReadData");
+	test_io_open = (myIOOpen)GetProcAddress(hDLL, "VLFD_IO_Open");
+	test_get_error = (GetError)GetProcAddress(hDLL, "VLFD_GetLastErrorMsg");
+	test_program = (myProgram)GetProcAddress(hDLL, "VLFD_ProgramFPGA");
+	test_io_close = (myIOClose)GetProcAddress(hDLL, "VLFD_IO_Close");
+	test_write_read_data = (myWriteReadData)GetProcAddress(hDLL, "VLFD_IO_WriteReadData");
 
 	if (!test_io_open || !test_get_error || !test_program || !test_io_close || !test_write_read_data)
 	{
@@ -60,7 +60,7 @@ int main()
 		return -1;
 	}
 
-	printf ("index\tinput\tdata\toutput\n");
+	printf("index\tinput\tdata\toutput\n");
 
 	// map of Buffer is shown in xml
 	for (int clock = 0; clock < ClockCount; clock++)
