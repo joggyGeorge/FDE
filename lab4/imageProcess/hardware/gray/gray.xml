@@ -1,0 +1,36 @@
+<design name="gray">
+ <port name="clk" position="P77"/>
+ <port name="RGB[0]" position="P151"/>
+ <port name="RGB[1]" position="P148"/>
+ <port name="RGB[2]" position="P150"/>
+ <port name="RGB[3]" position="P152"/>
+ <port name="RGB[4]" position="P160"/>
+ <port name="RGB[5]" position="P161"/>
+ <port name="RGB[6]" position="P162"/>
+ <port name="RGB[7]" position="P163"/>
+ <port name="RGB[8]" position="P164"/>
+ <port name="RGB[9]" position="P165"/>
+ <port name="RGB[10]" position="P166"/>
+ <port name="RGB[11]" position="P169"/>
+ <port name="RGB[12]" position="P173"/>
+ <port name="RGB[13]" position="P174"/>
+ <port name="RGB[14]" position="P175"/>
+ <port name="RGB[15]" position="P191"/>
+ <port name="RGB[16]" position="P120"/>
+ <port name="RGB[17]" position="P116"/>
+ <port name="RGB[18]" position="P115"/>
+ <port name="RGB[19]" position="P114"/>
+ <port name="RGB[20]" position="P113"/>
+ <port name="RGB[21]" position="P112"/>
+ <port name="RGB[22]" position="P111"/>
+ <port name="RGB[23]" position="P108"/>
+ <port name="out_gray[0]" position="P7"/>
+ <port name="out_gray[1]" position="P6"/>
+ <port name="out_gray[2]" position="P5"/>
+ <port name="out_gray[3]" position="P4"/>
+ <port name="out_gray[4]" position="P9"/>
+ <port name="out_gray[5]" position="P8"/>
+ <port name="out_gray[6]" position="P16"/>
+ <port name="out_gray[7]" position="P15"/>
+
+</design>

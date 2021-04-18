@@ -1,0 +1,20 @@
+<design name="binary">
+ <port name="clk" position="P77"/>
+ <port name="gray[0]" position="P151"/>
+ <port name="gray[1]" position="P148"/>
+ <port name="gray[2]" position="P150"/>
+ <port name="gray[3]" position="P152"/>
+ <port name="gray[4]" position="P160"/>
+ <port name="gray[5]" position="P161"/>
+ <port name="gray[6]" position="P162"/>
+ <port name="gray[7]" position="P163"/>
+ <port name="binary[0]" position="P7"/>
+ <port name="binary[1]" position="P6"/>
+ <port name="binary[2]" position="P5"/>
+ <port name="binary[3]" position="P4"/>
+ <port name="binary[4]" position="P9"/>
+ <port name="binary[5]" position="P8"/>
+ <port name="binary[6]" position="P16"/>
+ <port name="binary[7]" position="P15"/>
+
+</design>

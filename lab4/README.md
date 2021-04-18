@@ -1,5 +1,5 @@
 原软硬件协同项目是SMIMS公司的一个开发板应用实例，但是有以下几个问题：
-1. 使用旧版Visual Studio，虽然用新版Visual Studio打开会由VS自动更新为新版
+1. 使用旧版Visual Studio，虽然用新版Visual Studio打开会由VS自动更新为新版，但在一些复杂项目中链接库已不可用
 2. 不支持HDLAutoAssign，根据他的说明文档，其中的CS\FULL\EMPTY等信号是反应开发板属性的特殊信号。根据其提供的xml引脚约束文件，它们都具有特殊引脚，不能用HDLAutoAssign自动分配，只能沿用实例中写好的xml文件。
 
 因此我重写了该实例，放在NoUseFIFO文件夹中，有以下几个改动：
