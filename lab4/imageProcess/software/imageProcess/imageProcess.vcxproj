@@ -80,8 +80,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>H:\Program Files (x86)\opencv 4.5.2\build\include\opencv2;H:\Program Files (x86)\opencv 4.5.2\build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>H:\Program Files (x86)\opencv 4.5.2\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>H:\opencv4.5.2\build\include;H:\opencv4.5.2\build\include\opencv2;$(IncludePath)</IncludePath>
+    <LibraryPath>H:\opencv4.5.2\build\x64\vc15\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
