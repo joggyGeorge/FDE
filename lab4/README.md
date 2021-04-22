@@ -5,6 +5,15 @@
 因此我重写了该实例，放在NoUseFIFO文件夹中，有以下几个改动：
 1. 使用了wonton的新动态链接库，支持多平台（包括win, linux, osx）
 2. 新的DLL重写了原接口函数。原接口函数以APP开头，现接口函数以IO开头。新接口函数只支持WriteReadData，不支持先WriteFIFO后ReadFIFO。
-3. 需要更新USB驱动，使用的更新软件是zadig，与wonton相同
+3. 需要更新USB协议，使用的更新软件是zadig，与wonton相同
 
 注：新DLL存放于DLL文件夹中，注明了win, linux, osx以及32位和64位的区别，需要在VS中根据位数设置，并选取适合自己系统的DLL
+***
+补充：
+新实例的特点：
+- 接口函数IO开头
+- 各平台、系统支持
+- single模式，多次输入一组数据（vs burst模式，一次输入多组数据）
+- 输出落后输入一个时钟周期
+- 更新USB协议
+- 可用HDLAutoAssign
