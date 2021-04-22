@@ -92,12 +92,12 @@ Mat gray(string picture, const char* bitfile)
 		{
 			Vec3b point = image.at<Vec3b>(i, j);	// bgr
 			cout << dec << "i = " << i << " j = " << j << endl;
-			//cout << "b = " << hex << int(point[0]) << " g = " << int(point[1]) << " r = " << int(point[2]) << endl;
+			cout << "b = " << hex << int(point[0]) << " g = " << int(point[1]) << " r = " << int(point[2]) << endl;
 			WORD gr = (point[1] << 8) + point[2];
 			WORD b = point[0];
-			//cout << "gr = " << hex << gr << " b = " << b << endl;
+			cout << "gr = " << hex << gr << " b = " << b << endl;
 			int sum = int(point[0]) + int(point[1]) + int(point[2]);
-			//cout << "compare gray = " << (sum >> 2) << endl;
+			cout << "compare gray = " << (sum >> 2) << endl;
 
 			WriteBuffer[0] = gr;
 			WriteBuffer[1] = b;
@@ -112,7 +112,7 @@ Mat gray(string picture, const char* bitfile)
 				cout << test_get_error(iBoard) << endl;
 				return matout;
 			}
-			//cout << "gray = " << hex << (ReadBuffer[0] & 0x00FF) << endl;
+			cout << "gray = " << hex << (ReadBuffer[0] & 0x00FF) << endl;
 			if (!(i == 0 && j == 0))
 				matout.at<uchar>(i * image.size().width + j - 1) = ReadBuffer[0] & 0x00FF;
 		}
@@ -129,7 +129,7 @@ Mat gray(string picture, const char* bitfile)
 	cout << "channel: " << matout.channels() << endl;
 	cout << "height: " << matout.size().height << endl;
 	cout << "width: " << matout.size().width << endl;
-	cout << "type: " << matout.type() << endl;;
+	cout << "type: " << matout.type() << endl;
 	
 	imshow("test", matout);
 	waitKey();
@@ -177,7 +177,7 @@ Mat binary(string picture, const char* bitfile)
 		{
 			int point = image.at<uchar>(i, j);
 			cout << dec << "i = " << i << " j = " << j << endl;
-			//cout << "gray = " << point << endl;
+			cout << "gray = " << point << endl;
 			WriteBuffer[0] = point;
 			WriteBuffer[1] = 0x00;
 			WriteBuffer[2] = 0x00;
@@ -190,8 +190,8 @@ Mat binary(string picture, const char* bitfile)
 				cout << test_get_error(iBoard) << endl;
 				return matout;
 			}
-			//cout << "compare = " << (WriteBuffer[0] >> 7) << endl;
-			//cout << "binary = " << (ReadBuffer[0] & 0x00FF) << endl;
+			cout << "compare = " << (WriteBuffer[0] >> 7) << endl;
+			cout << "binary = " << (ReadBuffer[0] & 0x00FF) << endl;
 			if (!(i == 0 && j == 0))
 				matout.at<uchar>(i * image.size().width + j - 1) = (ReadBuffer[0] & 0x00FF);
 		}
@@ -202,6 +202,14 @@ Mat binary(string picture, const char* bitfile)
 		cout << test_get_error(iBoard) << endl;
 		return matout;
 	}
+
+	cout << "total: " << matout.total() << endl;
+	cout << "size: " << matout.size() << endl;
+	cout << "channel: " << matout.channels() << endl;
+	cout << "height: " << matout.size().height << endl;
+	cout << "width: " << matout.size().width << endl;
+	cout << "type: " << matout.type() << endl;
+
 	imshow("test", matout);
 	waitKey();
 	return matout;

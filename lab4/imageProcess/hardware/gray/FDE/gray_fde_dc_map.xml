@@ -1,0 +1,598 @@
+<design name="gray">
+	<external name="cell_lib">
+		<module name="IPAD" type="MACRO">
+			<port name="PAD" direction="input"/>
+		</module>
+		<module name="ADDF" type="MACRO">
+			<property name="truthtable" value="1100001100111100"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="CI" direction="input"/>
+			<port name="S" direction="output"/>
+			<port name="CO" direction="output" type="carry"/>
+		</module>
+		<module name="LOGIC_1" type="MACRO">
+			<property name="truthtable" value="|1"/>
+			<port name="LOGIC_1_PIN" direction="output"/>
+		</module>
+		<module name="LOGIC_0" type="MACRO">
+			<property name="truthtable" value="|0"/>
+			<port name="LOGIC_0_PIN" direction="output"/>
+		</module>
+		<module name="LUT2" type="LUT">
+			<port name="ADR0" direction="input"/>
+			<port name="ADR1" direction="input"/>
+			<port name="O" direction="output"/>
+		</module>
+		<module name="IBUF" type="COMB">
+			<property name="truthtable" value="1"/>
+			<port name="I" direction="input"/>
+			<port name="O" direction="output"/>
+		</module>
+		<module name="CLKBUF" type="COMB">
+			<property name="truthtable" value="1"/>
+			<port name="I" direction="input"/>
+			<port name="O" direction="output"/>
+		</module>
+		<module name="OBUF" type="COMB">
+			<property name="truthtable" value="1"/>
+			<port name="I" direction="input"/>
+			<port name="O" direction="output"/>
+		</module>
+		<module name="DFFHQ" type="FFLATCH">
+			<property name="edge" value="rise"/>
+			<port name="D" direction="input"/>
+			<port name="CK" direction="input" type="clock"/>
+			<port name="Q" direction="output"/>
+		</module>
+		<module name="OPAD" type="MACRO">
+			<port name="PAD" direction="output"/>
+		</module>
+	</external>
+	<library name="work_lib">
+		<module name="gray">
+			<port name="RGB" msb="23" lsb="0" direction="input"/>
+			<port name="clk" direction="input"/>
+			<port name="out_gray" msb="7" lsb="0" direction="output"/>
+			<contents>
+				<instance name="RGB[23]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[22]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[21]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[20]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[19]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[18]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[17]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[16]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[15]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[14]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[13]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[12]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[11]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[10]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[9]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[8]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[7]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[6]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[5]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[4]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[3]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[2]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[1]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="RGB[0]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="clk_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="U3" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U4" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U5" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U6" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U7" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U8" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U9" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U10" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U11" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U12" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U13" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U14" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U15" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U16" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U17" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U18" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U19" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U20" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U23" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U24" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U25" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U27" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="VCC" moduleRef="LOGIC_1" libraryRef="cell_lib"/>
+				<instance name="GND" moduleRef="LOGIC_0" libraryRef="cell_lib"/>
+				<instance name="Lut-U21_0_0" moduleRef="LUT2" libraryRef="cell_lib">
+					<property name="INIT" value="8"/>
+				</instance>
+				<instance name="Lut-U26_0" moduleRef="LUT2" libraryRef="cell_lib">
+					<property name="INIT" value="9"/>
+				</instance>
+				<instance name="Lut-U26_0InvLut" moduleRef="LUT2" libraryRef="cell_lib">
+					<property name="INIT" value="5"/>
+				</instance>
+				<instance name="Buf-pad-RGB[23]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[22]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[21]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[20]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[19]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[18]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[17]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[16]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[15]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[14]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[13]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[12]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[11]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[10]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[9]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[8]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[7]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[6]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[5]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[4]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[3]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[2]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[1]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-RGB[0]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-clk" moduleRef="CLKBUF" libraryRef="cell_lib"/>
+				<instance name="IBuf-clkpad-clk" moduleRef="CLKBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-out_gray[7]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-out_gray[6]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-out_gray[5]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-out_gray[4]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-out_gray[3]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-out_gray[2]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-out_gray[1]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-out_gray[0]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[7]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[6]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[5]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[4]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[3]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[2]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[1]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[0]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray[7]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="out_gray[6]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="out_gray[5]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="out_gray[4]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="out_gray[3]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="out_gray[2]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="out_gray[1]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="out_gray[0]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<net name="RGB[23]">
+					<portRef name="RGB[23]"/>
+					<portRef name="PAD" instanceRef="RGB[23]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[23]"/>
+				</net>
+				<net name="RGB[22]">
+					<portRef name="RGB[22]"/>
+					<portRef name="PAD" instanceRef="RGB[22]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[22]"/>
+				</net>
+				<net name="RGB[21]">
+					<portRef name="RGB[21]"/>
+					<portRef name="PAD" instanceRef="RGB[21]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[21]"/>
+				</net>
+				<net name="RGB[20]">
+					<portRef name="RGB[20]"/>
+					<portRef name="PAD" instanceRef="RGB[20]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[20]"/>
+				</net>
+				<net name="RGB[19]">
+					<portRef name="RGB[19]"/>
+					<portRef name="PAD" instanceRef="RGB[19]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[19]"/>
+				</net>
+				<net name="RGB[18]">
+					<portRef name="RGB[18]"/>
+					<portRef name="PAD" instanceRef="RGB[18]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[18]"/>
+				</net>
+				<net name="RGB[17]">
+					<portRef name="RGB[17]"/>
+					<portRef name="PAD" instanceRef="RGB[17]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[17]"/>
+				</net>
+				<net name="RGB[16]">
+					<portRef name="RGB[16]"/>
+					<portRef name="PAD" instanceRef="RGB[16]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[16]"/>
+				</net>
+				<net name="RGB[15]">
+					<portRef name="RGB[15]"/>
+					<portRef name="PAD" instanceRef="RGB[15]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[15]"/>
+				</net>
+				<net name="RGB[14]">
+					<portRef name="RGB[14]"/>
+					<portRef name="PAD" instanceRef="RGB[14]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[14]"/>
+				</net>
+				<net name="RGB[13]">
+					<portRef name="RGB[13]"/>
+					<portRef name="PAD" instanceRef="RGB[13]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[13]"/>
+				</net>
+				<net name="RGB[12]">
+					<portRef name="RGB[12]"/>
+					<portRef name="PAD" instanceRef="RGB[12]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[12]"/>
+				</net>
+				<net name="RGB[11]">
+					<portRef name="RGB[11]"/>
+					<portRef name="PAD" instanceRef="RGB[11]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[11]"/>
+				</net>
+				<net name="RGB[10]">
+					<portRef name="RGB[10]"/>
+					<portRef name="PAD" instanceRef="RGB[10]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[10]"/>
+				</net>
+				<net name="RGB[9]">
+					<portRef name="RGB[9]"/>
+					<portRef name="PAD" instanceRef="RGB[9]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[9]"/>
+				</net>
+				<net name="RGB[8]">
+					<portRef name="RGB[8]"/>
+					<portRef name="PAD" instanceRef="RGB[8]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[8]"/>
+				</net>
+				<net name="RGB[7]">
+					<portRef name="RGB[7]"/>
+					<portRef name="PAD" instanceRef="RGB[7]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[7]"/>
+				</net>
+				<net name="RGB[6]">
+					<portRef name="RGB[6]"/>
+					<portRef name="PAD" instanceRef="RGB[6]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[6]"/>
+				</net>
+				<net name="RGB[5]">
+					<portRef name="RGB[5]"/>
+					<portRef name="PAD" instanceRef="RGB[5]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[5]"/>
+				</net>
+				<net name="RGB[4]">
+					<portRef name="RGB[4]"/>
+					<portRef name="PAD" instanceRef="RGB[4]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[4]"/>
+				</net>
+				<net name="RGB[3]">
+					<portRef name="RGB[3]"/>
+					<portRef name="PAD" instanceRef="RGB[3]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[3]"/>
+				</net>
+				<net name="RGB[2]">
+					<portRef name="RGB[2]"/>
+					<portRef name="PAD" instanceRef="RGB[2]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[2]"/>
+				</net>
+				<net name="RGB[1]">
+					<portRef name="RGB[1]"/>
+					<portRef name="PAD" instanceRef="RGB[1]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[1]"/>
+				</net>
+				<net name="RGB[0]">
+					<portRef name="RGB[0]"/>
+					<portRef name="PAD" instanceRef="RGB[0]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-RGB[0]"/>
+				</net>
+				<net name="clk">
+					<portRef name="clk"/>
+					<portRef name="PAD" instanceRef="clk_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-clk"/>
+				</net>
+				<net name="net_Buf-pad-RGB[3]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[3]"/>
+					<portRef name="ADR0" instanceRef="Lut-U21_0_0"/>
+					<portRef name="ADR0" instanceRef="Lut-U26_0"/>
+				</net>
+				<net name="net_Buf-pad-RGB[19]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[19]"/>
+					<portRef name="ADR1" instanceRef="Lut-U21_0_0"/>
+					<portRef name="ADR1" instanceRef="Lut-U26_0"/>
+				</net>
+				<net name="net_Lut-U26_0">
+					<portRef name="O" instanceRef="Lut-U26_0"/>
+					<portRef name="ADR0" instanceRef="Lut-U26_0InvLut"/>
+				</net>
+				<net name="net_VCC">
+					<portRef name="LOGIC_1_PIN" instanceRef="VCC"/>
+					<portRef name="ADR1" instanceRef="Lut-U26_0InvLut"/>
+				</net>
+				<net name="net_Buf-pad-clk">
+					<portRef name="O" instanceRef="Buf-pad-clk"/>
+					<portRef name="I" instanceRef="IBuf-clkpad-clk"/>
+				</net>
+				<net name="net_out_gray_reg[7]">
+					<portRef name="Q" instanceRef="out_gray_reg[7]"/>
+					<portRef name="I" instanceRef="Buf-pad-out_gray[7]"/>
+				</net>
+				<net name="net_out_gray_reg[6]">
+					<portRef name="Q" instanceRef="out_gray_reg[6]"/>
+					<portRef name="I" instanceRef="Buf-pad-out_gray[6]"/>
+				</net>
+				<net name="net_out_gray_reg[5]">
+					<portRef name="Q" instanceRef="out_gray_reg[5]"/>
+					<portRef name="I" instanceRef="Buf-pad-out_gray[5]"/>
+				</net>
+				<net name="net_out_gray_reg[4]">
+					<portRef name="Q" instanceRef="out_gray_reg[4]"/>
+					<portRef name="I" instanceRef="Buf-pad-out_gray[4]"/>
+				</net>
+				<net name="net_out_gray_reg[3]">
+					<portRef name="Q" instanceRef="out_gray_reg[3]"/>
+					<portRef name="I" instanceRef="Buf-pad-out_gray[3]"/>
+				</net>
+				<net name="net_out_gray_reg[2]">
+					<portRef name="Q" instanceRef="out_gray_reg[2]"/>
+					<portRef name="I" instanceRef="Buf-pad-out_gray[2]"/>
+				</net>
+				<net name="net_out_gray_reg[1]">
+					<portRef name="Q" instanceRef="out_gray_reg[1]"/>
+					<portRef name="I" instanceRef="Buf-pad-out_gray[1]"/>
+				</net>
+				<net name="net_out_gray_reg[0]">
+					<portRef name="Q" instanceRef="out_gray_reg[0]"/>
+					<portRef name="I" instanceRef="Buf-pad-out_gray[0]"/>
+				</net>
+				<net name="net_U3_CO">
+					<portRef name="CO" instanceRef="U3"/>
+					<portRef name="D" instanceRef="out_gray_reg[7]"/>
+				</net>
+				<net name="net_IBuf-clkpad-clk" type="clock">
+					<portRef name="O" instanceRef="IBuf-clkpad-clk"/>
+					<portRef name="CK" instanceRef="out_gray_reg[7]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[6]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[5]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[4]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[3]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[2]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[1]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[0]"/>
+				</net>
+				<net name="net_U4_S">
+					<portRef name="S" instanceRef="U4"/>
+					<portRef name="D" instanceRef="out_gray_reg[6]"/>
+				</net>
+				<net name="net_U7_S">
+					<portRef name="S" instanceRef="U7"/>
+					<portRef name="D" instanceRef="out_gray_reg[5]"/>
+				</net>
+				<net name="net_U11_S">
+					<portRef name="S" instanceRef="U11"/>
+					<portRef name="D" instanceRef="out_gray_reg[4]"/>
+				</net>
+				<net name="net_U15_S">
+					<portRef name="S" instanceRef="U15"/>
+					<portRef name="D" instanceRef="out_gray_reg[3]"/>
+				</net>
+				<net name="net_U19_S">
+					<portRef name="S" instanceRef="U19"/>
+					<portRef name="D" instanceRef="out_gray_reg[2]"/>
+				</net>
+				<net name="net_U24_S">
+					<portRef name="S" instanceRef="U24"/>
+					<portRef name="D" instanceRef="out_gray_reg[1]"/>
+				</net>
+				<net name="net_U27_S">
+					<portRef name="S" instanceRef="U27"/>
+					<portRef name="D" instanceRef="out_gray_reg[0]"/>
+				</net>
+				<net name="net_Buf-pad-RGB[15]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[15]"/>
+					<portRef name="A" instanceRef="U3"/>
+					<portRef name="A" instanceRef="U4"/>
+				</net>
+				<net name="net_U6_CO">
+					<portRef name="CO" instanceRef="U6"/>
+					<portRef name="B" instanceRef="U3"/>
+					<portRef name="B" instanceRef="U4"/>
+				</net>
+				<net name="net_U5_CO">
+					<portRef name="CO" instanceRef="U5"/>
+					<portRef name="CI" instanceRef="U3"/>
+					<portRef name="CI" instanceRef="U4"/>
+				</net>
+				<net name="net_Buf-pad-RGB[14]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[14]"/>
+					<portRef name="A" instanceRef="U5"/>
+					<portRef name="A" instanceRef="U10"/>
+				</net>
+				<net name="net_Buf-pad-RGB[7]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[7]"/>
+					<portRef name="B" instanceRef="U5"/>
+					<portRef name="B" instanceRef="U10"/>
+				</net>
+				<net name="net_Buf-pad-RGB[23]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[23]"/>
+					<portRef name="CI" instanceRef="U5"/>
+					<portRef name="CI" instanceRef="U10"/>
+				</net>
+				<net name="net_U10_S">
+					<portRef name="S" instanceRef="U10"/>
+					<portRef name="A" instanceRef="U6"/>
+					<portRef name="A" instanceRef="U7"/>
+				</net>
+				<net name="net_U8_CO">
+					<portRef name="CO" instanceRef="U8"/>
+					<portRef name="B" instanceRef="U6"/>
+					<portRef name="CI" instanceRef="U7"/>
+				</net>
+				<net name="net_U9_CO">
+					<portRef name="CO" instanceRef="U9"/>
+					<portRef name="CI" instanceRef="U6"/>
+					<portRef name="B" instanceRef="U7"/>
+				</net>
+				<net name="net_Buf-pad-RGB[13]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[13]"/>
+					<portRef name="A" instanceRef="U8"/>
+					<portRef name="A" instanceRef="U14"/>
+				</net>
+				<net name="net_Buf-pad-RGB[6]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[6]"/>
+					<portRef name="B" instanceRef="U8"/>
+					<portRef name="B" instanceRef="U14"/>
+				</net>
+				<net name="net_Buf-pad-RGB[22]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[22]"/>
+					<portRef name="CI" instanceRef="U8"/>
+					<portRef name="CI" instanceRef="U14"/>
+				</net>
+				<net name="net_U14_S">
+					<portRef name="S" instanceRef="U14"/>
+					<portRef name="A" instanceRef="U9"/>
+					<portRef name="A" instanceRef="U11"/>
+				</net>
+				<net name="net_U12_CO">
+					<portRef name="CO" instanceRef="U12"/>
+					<portRef name="B" instanceRef="U9"/>
+					<portRef name="CI" instanceRef="U11"/>
+				</net>
+				<net name="net_U13_CO">
+					<portRef name="CO" instanceRef="U13"/>
+					<portRef name="CI" instanceRef="U9"/>
+					<portRef name="B" instanceRef="U11"/>
+				</net>
+				<net name="net_Buf-pad-RGB[12]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[12]"/>
+					<portRef name="A" instanceRef="U12"/>
+					<portRef name="A" instanceRef="U18"/>
+				</net>
+				<net name="net_Buf-pad-RGB[5]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[5]"/>
+					<portRef name="B" instanceRef="U12"/>
+					<portRef name="B" instanceRef="U18"/>
+				</net>
+				<net name="net_Buf-pad-RGB[21]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[21]"/>
+					<portRef name="CI" instanceRef="U12"/>
+					<portRef name="CI" instanceRef="U18"/>
+				</net>
+				<net name="net_U18_S">
+					<portRef name="S" instanceRef="U18"/>
+					<portRef name="A" instanceRef="U13"/>
+					<portRef name="A" instanceRef="U15"/>
+				</net>
+				<net name="net_U16_CO">
+					<portRef name="CO" instanceRef="U16"/>
+					<portRef name="B" instanceRef="U13"/>
+					<portRef name="CI" instanceRef="U15"/>
+				</net>
+				<net name="net_U17_CO">
+					<portRef name="CO" instanceRef="U17"/>
+					<portRef name="CI" instanceRef="U13"/>
+					<portRef name="B" instanceRef="U15"/>
+				</net>
+				<net name="net_Buf-pad-RGB[11]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[11]"/>
+					<portRef name="A" instanceRef="U16"/>
+					<portRef name="A" instanceRef="U23"/>
+				</net>
+				<net name="net_Buf-pad-RGB[4]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[4]"/>
+					<portRef name="B" instanceRef="U16"/>
+					<portRef name="B" instanceRef="U23"/>
+				</net>
+				<net name="net_Buf-pad-RGB[20]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[20]"/>
+					<portRef name="CI" instanceRef="U16"/>
+					<portRef name="CI" instanceRef="U23"/>
+				</net>
+				<net name="net_U23_S">
+					<portRef name="S" instanceRef="U23"/>
+					<portRef name="A" instanceRef="U17"/>
+					<portRef name="A" instanceRef="U19"/>
+				</net>
+				<net name="net_Lut-U21_0_0">
+					<portRef name="O" instanceRef="Lut-U21_0_0"/>
+					<portRef name="B" instanceRef="U17"/>
+					<portRef name="B" instanceRef="U19"/>
+				</net>
+				<net name="net_U20_CO">
+					<portRef name="CO" instanceRef="U20"/>
+					<portRef name="CI" instanceRef="U17"/>
+					<portRef name="CI" instanceRef="U19"/>
+				</net>
+				<net name="net_Buf-pad-RGB[10]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[10]"/>
+					<portRef name="A" instanceRef="U20"/>
+					<portRef name="A" instanceRef="U24"/>
+				</net>
+				<net name="net_Lut-U26_0InvLut">
+					<portRef name="O" instanceRef="Lut-U26_0InvLut"/>
+					<portRef name="B" instanceRef="U20"/>
+					<portRef name="B" instanceRef="U24"/>
+				</net>
+				<net name="net_U25_CO">
+					<portRef name="CO" instanceRef="U25"/>
+					<portRef name="CI" instanceRef="U20"/>
+					<portRef name="CI" instanceRef="U24"/>
+				</net>
+				<net name="net_Buf-pad-RGB[18]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[18]"/>
+					<portRef name="A" instanceRef="U25"/>
+					<portRef name="A" instanceRef="U27"/>
+				</net>
+				<net name="net_Buf-pad-RGB[2]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[2]"/>
+					<portRef name="B" instanceRef="U25"/>
+					<portRef name="B" instanceRef="U27"/>
+				</net>
+				<net name="net_Buf-pad-RGB[9]">
+					<portRef name="O" instanceRef="Buf-pad-RGB[9]"/>
+					<portRef name="CI" instanceRef="U25"/>
+					<portRef name="CI" instanceRef="U27"/>
+				</net>
+				<net name="out_gray[7]">
+					<portRef name="PAD" instanceRef="out_gray[7]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-out_gray[7]"/>
+					<portRef name="out_gray[7]"/>
+				</net>
+				<net name="out_gray[6]">
+					<portRef name="PAD" instanceRef="out_gray[6]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-out_gray[6]"/>
+					<portRef name="out_gray[6]"/>
+				</net>
+				<net name="out_gray[5]">
+					<portRef name="PAD" instanceRef="out_gray[5]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-out_gray[5]"/>
+					<portRef name="out_gray[5]"/>
+				</net>
+				<net name="out_gray[4]">
+					<portRef name="PAD" instanceRef="out_gray[4]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-out_gray[4]"/>
+					<portRef name="out_gray[4]"/>
+				</net>
+				<net name="out_gray[3]">
+					<portRef name="PAD" instanceRef="out_gray[3]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-out_gray[3]"/>
+					<portRef name="out_gray[3]"/>
+				</net>
+				<net name="out_gray[2]">
+					<portRef name="PAD" instanceRef="out_gray[2]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-out_gray[2]"/>
+					<portRef name="out_gray[2]"/>
+				</net>
+				<net name="out_gray[1]">
+					<portRef name="PAD" instanceRef="out_gray[1]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-out_gray[1]"/>
+					<portRef name="out_gray[1]"/>
+				</net>
+				<net name="out_gray[0]">
+					<portRef name="PAD" instanceRef="out_gray[0]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-out_gray[0]"/>
+					<portRef name="out_gray[0]"/>
+				</net>
+			</contents>
+		</module>
+	</library>
+	<topModule name="gray" libraryRef="work_lib"/>
+</design>
+

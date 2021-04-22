@@ -1,0 +1,196 @@
+<design name="binary">
+	<external name="cell_lib">
+		<module name="IPAD" type="MACRO">
+			<port name="PAD" direction="input"/>
+		</module>
+		<module name="LOGIC_1" type="MACRO">
+			<property name="truthtable" value="|1"/>
+			<port name="LOGIC_1_PIN" direction="output"/>
+		</module>
+		<module name="LOGIC_0" type="MACRO">
+			<property name="truthtable" value="|0"/>
+			<port name="LOGIC_0_PIN" direction="output"/>
+		</module>
+		<module name="IBUF" type="COMB">
+			<property name="truthtable" value="1"/>
+			<port name="I" direction="input"/>
+			<port name="O" direction="output"/>
+		</module>
+		<module name="CLKBUF" type="COMB">
+			<property name="truthtable" value="1"/>
+			<port name="I" direction="input"/>
+			<port name="O" direction="output"/>
+		</module>
+		<module name="OBUF" type="COMB">
+			<property name="truthtable" value="1"/>
+			<port name="I" direction="input"/>
+			<port name="O" direction="output"/>
+		</module>
+		<module name="DFFHQ" type="FFLATCH">
+			<property name="edge" value="rise"/>
+			<port name="D" direction="input"/>
+			<port name="CK" direction="input" type="clock"/>
+			<port name="Q" direction="output"/>
+		</module>
+		<module name="OPAD" type="MACRO">
+			<port name="PAD" direction="output"/>
+		</module>
+	</external>
+	<library name="work_lib">
+		<module name="binary">
+			<port name="gray" msb="7" lsb="0" direction="input"/>
+			<port name="clk" direction="input"/>
+			<port name="binary" msb="7" lsb="0" direction="output"/>
+			<contents>
+				<instance name="gray[7]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="gray[6]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="gray[5]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="gray[4]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="gray[3]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="gray[2]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="gray[1]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="gray[0]_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="clk_ipad" moduleRef="IPAD" libraryRef="cell_lib"/>
+				<instance name="VCC" moduleRef="LOGIC_1" libraryRef="cell_lib"/>
+				<instance name="GND" moduleRef="LOGIC_0" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-gray[7]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-gray[6]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-gray[5]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-gray[4]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-gray[3]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-gray[2]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-gray[1]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-gray[0]" moduleRef="IBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-clk" moduleRef="CLKBUF" libraryRef="cell_lib"/>
+				<instance name="IBuf-clkpad-clk" moduleRef="CLKBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-binary[7]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-binary[6]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-binary[5]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-binary[4]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-binary[3]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-binary[2]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-binary[1]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="Buf-pad-binary[0]" moduleRef="OBUF" libraryRef="cell_lib"/>
+				<instance name="binary_reg[0]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="binary[7]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="binary[6]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="binary[5]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="binary[4]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="binary[3]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="binary[2]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="binary[1]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<instance name="binary[0]_opad" moduleRef="OPAD" libraryRef="cell_lib"/>
+				<net name="gray[7]">
+					<portRef name="gray[7]"/>
+					<portRef name="PAD" instanceRef="gray[7]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-gray[7]"/>
+				</net>
+				<net name="gray[6]">
+					<portRef name="gray[6]"/>
+					<portRef name="PAD" instanceRef="gray[6]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-gray[6]"/>
+				</net>
+				<net name="gray[5]">
+					<portRef name="gray[5]"/>
+					<portRef name="PAD" instanceRef="gray[5]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-gray[5]"/>
+				</net>
+				<net name="gray[4]">
+					<portRef name="gray[4]"/>
+					<portRef name="PAD" instanceRef="gray[4]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-gray[4]"/>
+				</net>
+				<net name="gray[3]">
+					<portRef name="gray[3]"/>
+					<portRef name="PAD" instanceRef="gray[3]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-gray[3]"/>
+				</net>
+				<net name="gray[2]">
+					<portRef name="gray[2]"/>
+					<portRef name="PAD" instanceRef="gray[2]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-gray[2]"/>
+				</net>
+				<net name="gray[1]">
+					<portRef name="gray[1]"/>
+					<portRef name="PAD" instanceRef="gray[1]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-gray[1]"/>
+				</net>
+				<net name="gray[0]">
+					<portRef name="gray[0]"/>
+					<portRef name="PAD" instanceRef="gray[0]_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-gray[0]"/>
+				</net>
+				<net name="clk">
+					<portRef name="clk"/>
+					<portRef name="PAD" instanceRef="clk_ipad"/>
+					<portRef name="I" instanceRef="Buf-pad-clk"/>
+				</net>
+				<net name="net_Buf-pad-clk">
+					<portRef name="O" instanceRef="Buf-pad-clk"/>
+					<portRef name="I" instanceRef="IBuf-clkpad-clk"/>
+				</net>
+				<net name="net_binary_reg[0]">
+					<portRef name="Q" instanceRef="binary_reg[0]"/>
+					<portRef name="I" instanceRef="Buf-pad-binary[7]"/>
+					<portRef name="I" instanceRef="Buf-pad-binary[6]"/>
+					<portRef name="I" instanceRef="Buf-pad-binary[5]"/>
+					<portRef name="I" instanceRef="Buf-pad-binary[4]"/>
+					<portRef name="I" instanceRef="Buf-pad-binary[3]"/>
+					<portRef name="I" instanceRef="Buf-pad-binary[2]"/>
+					<portRef name="I" instanceRef="Buf-pad-binary[1]"/>
+					<portRef name="I" instanceRef="Buf-pad-binary[0]"/>
+				</net>
+				<net name="net_Buf-pad-gray[7]">
+					<portRef name="O" instanceRef="Buf-pad-gray[7]"/>
+					<portRef name="D" instanceRef="binary_reg[0]"/>
+				</net>
+				<net name="net_IBuf-clkpad-clk" type="clock">
+					<portRef name="O" instanceRef="IBuf-clkpad-clk"/>
+					<portRef name="CK" instanceRef="binary_reg[0]"/>
+				</net>
+				<net name="binary[7]">
+					<portRef name="PAD" instanceRef="binary[7]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-binary[7]"/>
+					<portRef name="binary[7]"/>
+				</net>
+				<net name="binary[6]">
+					<portRef name="PAD" instanceRef="binary[6]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-binary[6]"/>
+					<portRef name="binary[6]"/>
+				</net>
+				<net name="binary[5]">
+					<portRef name="PAD" instanceRef="binary[5]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-binary[5]"/>
+					<portRef name="binary[5]"/>
+				</net>
+				<net name="binary[4]">
+					<portRef name="PAD" instanceRef="binary[4]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-binary[4]"/>
+					<portRef name="binary[4]"/>
+				</net>
+				<net name="binary[3]">
+					<portRef name="PAD" instanceRef="binary[3]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-binary[3]"/>
+					<portRef name="binary[3]"/>
+				</net>
+				<net name="binary[2]">
+					<portRef name="PAD" instanceRef="binary[2]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-binary[2]"/>
+					<portRef name="binary[2]"/>
+				</net>
+				<net name="binary[1]">
+					<portRef name="PAD" instanceRef="binary[1]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-binary[1]"/>
+					<portRef name="binary[1]"/>
+				</net>
+				<net name="binary[0]">
+					<portRef name="PAD" instanceRef="binary[0]_opad"/>
+					<portRef name="O" instanceRef="Buf-pad-binary[0]"/>
+					<portRef name="binary[0]"/>
+				</net>
+			</contents>
+		</module>
+	</library>
+	<topModule name="binary" libraryRef="work_lib"/>
+</design>
+

@@ -1,0 +1,348 @@
+<design name="gray">
+	<external name="cell_lib">
+		<module name="DFFHQ" type="FFLATCH">
+			<property name="edge" value="rise"/>
+			<port name="D" direction="input"/>
+			<port name="CK" direction="input" type="clock"/>
+			<port name="Q" direction="output"/>
+		</module>
+		<module name="ADDF" type="MACRO">
+			<property name="truthtable" value="1100001100111100"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="CI" direction="input"/>
+			<port name="S" direction="output"/>
+			<port name="CO" direction="output" type="carry"/>
+		</module>
+		<module name="NOR2B" type="COMB">
+			<property name="truthtable" value="10"/>
+			<port name="AN" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="INV" type="COMB">
+			<property name="truthtable" value="0"/>
+			<port name="A" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="XOR2" type="COMB">
+			<property name="truthtable" value="01|10"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+	</external>
+	<library name="work_lib">
+		<module name="gray" type="GENERIC">
+			<port name="RGB" msb="23" lsb="0" direction="input"/>
+			<port name="out_gray" msb="7" lsb="0" direction="output"/>
+			<port name="clk" direction="input"/>
+			<contents>
+				<instance name="out_gray_reg[7]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[6]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[5]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[4]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[3]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[2]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[1]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="out_gray_reg[0]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<instance name="U3" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U4" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U5" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U6" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U7" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U8" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U9" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U10" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U11" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U12" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U13" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U14" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U15" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U16" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U17" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U18" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U19" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U20" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U21" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U22" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U23" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U24" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U25" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<instance name="U26" moduleRef="XOR2" libraryRef="cell_lib"/>
+				<instance name="U27" moduleRef="ADDF" libraryRef="cell_lib"/>
+				<net name="RGB[17]">
+					<portRef name="RGB[17]"/>
+				</net>
+				<net name="RGB[16]">
+					<portRef name="RGB[16]"/>
+				</net>
+				<net name="RGB[15]">
+					<portRef name="RGB[15]"/>
+					<portRef name="A" instanceRef="U3"/>
+					<portRef name="A" instanceRef="U4"/>
+				</net>
+				<net name="RGB[14]">
+					<portRef name="RGB[14]"/>
+					<portRef name="A" instanceRef="U5"/>
+					<portRef name="A" instanceRef="U10"/>
+				</net>
+				<net name="RGB[13]">
+					<portRef name="RGB[13]"/>
+					<portRef name="A" instanceRef="U8"/>
+					<portRef name="A" instanceRef="U14"/>
+				</net>
+				<net name="RGB[12]">
+					<portRef name="RGB[12]"/>
+					<portRef name="A" instanceRef="U12"/>
+					<portRef name="A" instanceRef="U18"/>
+				</net>
+				<net name="RGB[11]">
+					<portRef name="RGB[11]"/>
+					<portRef name="A" instanceRef="U16"/>
+					<portRef name="A" instanceRef="U23"/>
+				</net>
+				<net name="RGB[10]">
+					<portRef name="RGB[10]"/>
+					<portRef name="A" instanceRef="U20"/>
+					<portRef name="A" instanceRef="U24"/>
+				</net>
+				<net name="RGB[9]">
+					<portRef name="RGB[9]"/>
+					<portRef name="CI" instanceRef="U25"/>
+					<portRef name="CI" instanceRef="U27"/>
+				</net>
+				<net name="RGB[8]">
+					<portRef name="RGB[8]"/>
+				</net>
+				<net name="RGB[1]">
+					<portRef name="RGB[1]"/>
+				</net>
+				<net name="RGB[0]">
+					<portRef name="RGB[0]"/>
+				</net>
+				<net name="out_gray[7]">
+					<portRef name="Q" instanceRef="out_gray_reg[7]"/>
+					<portRef name="out_gray[7]"/>
+				</net>
+				<net name="out_gray[6]">
+					<portRef name="Q" instanceRef="out_gray_reg[6]"/>
+					<portRef name="out_gray[6]"/>
+				</net>
+				<net name="out_gray[5]">
+					<portRef name="Q" instanceRef="out_gray_reg[5]"/>
+					<portRef name="out_gray[5]"/>
+				</net>
+				<net name="out_gray[4]">
+					<portRef name="Q" instanceRef="out_gray_reg[4]"/>
+					<portRef name="out_gray[4]"/>
+				</net>
+				<net name="out_gray[3]">
+					<portRef name="Q" instanceRef="out_gray_reg[3]"/>
+					<portRef name="out_gray[3]"/>
+				</net>
+				<net name="out_gray[2]">
+					<portRef name="Q" instanceRef="out_gray_reg[2]"/>
+					<portRef name="out_gray[2]"/>
+				</net>
+				<net name="out_gray[1]">
+					<portRef name="Q" instanceRef="out_gray_reg[1]"/>
+					<portRef name="out_gray[1]"/>
+				</net>
+				<net name="out_gray[0]">
+					<portRef name="Q" instanceRef="out_gray_reg[0]"/>
+					<portRef name="out_gray[0]"/>
+				</net>
+				<net name="clk">
+					<portRef name="clk"/>
+					<portRef name="CK" instanceRef="out_gray_reg[7]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[6]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[5]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[4]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[3]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[2]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[1]"/>
+					<portRef name="CK" instanceRef="out_gray_reg[0]"/>
+				</net>
+				<net name="n1">
+					<portRef name="CO" instanceRef="U6"/>
+					<portRef name="B" instanceRef="U3"/>
+					<portRef name="B" instanceRef="U4"/>
+				</net>
+				<net name="n2">
+					<portRef name="CO" instanceRef="U5"/>
+					<portRef name="CI" instanceRef="U3"/>
+					<portRef name="CI" instanceRef="U4"/>
+				</net>
+				<net name="n3">
+					<portRef name="S" instanceRef="U10"/>
+					<portRef name="A" instanceRef="U6"/>
+					<portRef name="A" instanceRef="U7"/>
+				</net>
+				<net name="n4">
+					<portRef name="CO" instanceRef="U8"/>
+					<portRef name="B" instanceRef="U6"/>
+					<portRef name="CI" instanceRef="U7"/>
+				</net>
+				<net name="n5">
+					<portRef name="CO" instanceRef="U9"/>
+					<portRef name="CI" instanceRef="U6"/>
+					<portRef name="B" instanceRef="U7"/>
+				</net>
+				<net name="n6">
+					<portRef name="S" instanceRef="U14"/>
+					<portRef name="A" instanceRef="U9"/>
+					<portRef name="A" instanceRef="U11"/>
+				</net>
+				<net name="n7">
+					<portRef name="CO" instanceRef="U12"/>
+					<portRef name="B" instanceRef="U9"/>
+					<portRef name="CI" instanceRef="U11"/>
+				</net>
+				<net name="n8">
+					<portRef name="CO" instanceRef="U13"/>
+					<portRef name="CI" instanceRef="U9"/>
+					<portRef name="B" instanceRef="U11"/>
+				</net>
+				<net name="n9">
+					<portRef name="S" instanceRef="U18"/>
+					<portRef name="A" instanceRef="U13"/>
+					<portRef name="A" instanceRef="U15"/>
+				</net>
+				<net name="n10">
+					<portRef name="CO" instanceRef="U16"/>
+					<portRef name="B" instanceRef="U13"/>
+					<portRef name="CI" instanceRef="U15"/>
+				</net>
+				<net name="n11">
+					<portRef name="CO" instanceRef="U17"/>
+					<portRef name="CI" instanceRef="U13"/>
+					<portRef name="B" instanceRef="U15"/>
+				</net>
+				<net name="n12">
+					<portRef name="S" instanceRef="U23"/>
+					<portRef name="A" instanceRef="U17"/>
+					<portRef name="A" instanceRef="U19"/>
+				</net>
+				<net name="n13">
+					<portRef name="Y" instanceRef="U21"/>
+					<portRef name="B" instanceRef="U17"/>
+					<portRef name="B" instanceRef="U19"/>
+				</net>
+				<net name="n14">
+					<portRef name="CO" instanceRef="U20"/>
+					<portRef name="CI" instanceRef="U17"/>
+					<portRef name="CI" instanceRef="U19"/>
+				</net>
+				<net name="n15">
+					<portRef name="Y" instanceRef="U26"/>
+					<portRef name="B" instanceRef="U20"/>
+					<portRef name="B" instanceRef="U24"/>
+				</net>
+				<net name="n16">
+					<portRef name="CO" instanceRef="U25"/>
+					<portRef name="CI" instanceRef="U20"/>
+					<portRef name="CI" instanceRef="U24"/>
+				</net>
+				<net name="n17">
+					<portRef name="Y" instanceRef="U22"/>
+					<portRef name="B" instanceRef="U21"/>
+				</net>
+				<net name="sum[7]">
+					<portRef name="CO" instanceRef="U3"/>
+					<portRef name="D" instanceRef="out_gray_reg[7]"/>
+				</net>
+				<net name="sum[6]">
+					<portRef name="S" instanceRef="U4"/>
+					<portRef name="D" instanceRef="out_gray_reg[6]"/>
+				</net>
+				<net name="sum[5]">
+					<portRef name="S" instanceRef="U7"/>
+					<portRef name="D" instanceRef="out_gray_reg[5]"/>
+				</net>
+				<net name="sum[4]">
+					<portRef name="S" instanceRef="U11"/>
+					<portRef name="D" instanceRef="out_gray_reg[4]"/>
+				</net>
+				<net name="sum[3]">
+					<portRef name="S" instanceRef="U15"/>
+					<portRef name="D" instanceRef="out_gray_reg[3]"/>
+				</net>
+				<net name="sum[2]">
+					<portRef name="S" instanceRef="U19"/>
+					<portRef name="D" instanceRef="out_gray_reg[2]"/>
+				</net>
+				<net name="sum[1]">
+					<portRef name="S" instanceRef="U24"/>
+					<portRef name="D" instanceRef="out_gray_reg[1]"/>
+				</net>
+				<net name="sum[0]">
+					<portRef name="S" instanceRef="U27"/>
+					<portRef name="D" instanceRef="out_gray_reg[0]"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[23]"/>
+					<portRef name="CI" instanceRef="U5"/>
+					<portRef name="CI" instanceRef="U10"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[22]"/>
+					<portRef name="CI" instanceRef="U8"/>
+					<portRef name="CI" instanceRef="U14"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[21]"/>
+					<portRef name="CI" instanceRef="U12"/>
+					<portRef name="CI" instanceRef="U18"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[20]"/>
+					<portRef name="CI" instanceRef="U16"/>
+					<portRef name="CI" instanceRef="U23"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[19]"/>
+					<portRef name="A" instanceRef="U22"/>
+					<portRef name="B" instanceRef="U26"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[18]"/>
+					<portRef name="A" instanceRef="U25"/>
+					<portRef name="A" instanceRef="U27"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[7]"/>
+					<portRef name="B" instanceRef="U5"/>
+					<portRef name="B" instanceRef="U10"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[6]"/>
+					<portRef name="B" instanceRef="U8"/>
+					<portRef name="B" instanceRef="U14"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[5]"/>
+					<portRef name="B" instanceRef="U12"/>
+					<portRef name="B" instanceRef="U18"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[4]"/>
+					<portRef name="B" instanceRef="U16"/>
+					<portRef name="B" instanceRef="U23"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[3]"/>
+					<portRef name="AN" instanceRef="U21"/>
+					<portRef name="A" instanceRef="U26"/>
+				</net>
+				<net name="">
+					<portRef name="RGB[2]"/>
+					<portRef name="B" instanceRef="U25"/>
+					<portRef name="B" instanceRef="U27"/>
+				</net>
+			</contents>
+		</module>
+	</library>
+	<topModule name="gray" libraryRef="work_lib"/>
+</design>
+

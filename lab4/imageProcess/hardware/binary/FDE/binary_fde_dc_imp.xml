@@ -1,0 +1,62 @@
+<design name="binary">
+	<external name="cell_lib">
+		<module name="DFFHQ" type="FFLATCH">
+			<property name="edge" value="rise"/>
+			<port name="D" direction="input"/>
+			<port name="CK" direction="input" type="clock"/>
+			<port name="Q" direction="output"/>
+		</module>
+	</external>
+	<library name="work_lib">
+		<module name="binary" type="GENERIC">
+			<port name="gray" msb="7" lsb="0" direction="input"/>
+			<port name="binary" msb="7" lsb="0" direction="output"/>
+			<port name="clk" direction="input"/>
+			<contents>
+				<instance name="binary_reg[0]" moduleRef="DFFHQ" libraryRef="cell_lib"/>
+				<net name="gray[7]">
+					<portRef name="gray[7]"/>
+					<portRef name="D" instanceRef="binary_reg[0]"/>
+				</net>
+				<net name="gray[6]">
+					<portRef name="gray[6]"/>
+				</net>
+				<net name="gray[5]">
+					<portRef name="gray[5]"/>
+				</net>
+				<net name="gray[4]">
+					<portRef name="gray[4]"/>
+				</net>
+				<net name="gray[3]">
+					<portRef name="gray[3]"/>
+				</net>
+				<net name="gray[2]">
+					<portRef name="gray[2]"/>
+				</net>
+				<net name="gray[1]">
+					<portRef name="gray[1]"/>
+				</net>
+				<net name="gray[0]">
+					<portRef name="gray[0]"/>
+				</net>
+				<net name="clk">
+					<portRef name="clk"/>
+					<portRef name="CK" instanceRef="binary_reg[0]"/>
+				</net>
+				<net name="">
+					<portRef name="Q" instanceRef="binary_reg[0]"/>
+					<portRef name="binary[0]"/>
+					<portRef name="binary[1]"/>
+					<portRef name="binary[2]"/>
+					<portRef name="binary[3]"/>
+					<portRef name="binary[4]"/>
+					<portRef name="binary[5]"/>
+					<portRef name="binary[6]"/>
+					<portRef name="binary[7]"/>
+				</net>
+			</contents>
+		</module>
+	</library>
+	<topModule name="binary" libraryRef="work_lib"/>
+</design>
+

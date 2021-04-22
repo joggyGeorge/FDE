@@ -1,0 +1,1150 @@
+<design name="display">
+	<external name="cell_lib">
+		<module name="DFFRHQ" type="FFLATCH">
+			<property name="edge" value="rise"/>
+			<port name="D" direction="input"/>
+			<port name="CK" direction="input" type="clock"/>
+			<port name="RN" direction="input" type="reset"/>
+			<port name="Q" direction="output"/>
+		</module>
+		<module name="LOGIC_0" type="MACRO">
+			<property name="truthtable" value="|0"/>
+			<port name="LOGIC_0_PIN" direction="output"/>
+		</module>
+		<module name="INV" type="COMB">
+			<property name="truthtable" value="0"/>
+			<port name="A" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="LOGIC_1" type="MACRO">
+			<property name="truthtable" value="|1"/>
+			<port name="LOGIC_1_PIN" direction="output"/>
+		</module>
+		<module name="OAI211" type="COMB">
+			<property name="truthtable" value="00--|--0-|---0"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="C0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NOR2B" type="COMB">
+			<property name="truthtable" value="10"/>
+			<port name="AN" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="OAI2BB2" type="COMB">
+			<property name="truthtable" value="11--|--00"/>
+			<port name="A0N" direction="input"/>
+			<port name="A1N" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="B1" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NOR2" type="COMB">
+			<property name="truthtable" value="00"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="MX2" type="COMB">
+			<property name="truthtable" value="1-0|-11"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="S0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="AOI2BB2" type="COMB">
+			<property name="truthtable" value="1-0-|1--0|-10-|-1-0"/>
+			<port name="A0N" direction="input"/>
+			<port name="A1N" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="B1" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="OAI222" type="COMB">
+			<property name="truthtable" value="00----|--00--|----00"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="B1" direction="input"/>
+			<port name="C0" direction="input"/>
+			<port name="C1" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="OAI21" type="COMB">
+			<property name="truthtable" value="00-|--0"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="OR2" type="COMB">
+			<property name="truthtable" value="1-|-1"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NOR4B" type="COMB">
+			<property name="truthtable" value="1000"/>
+			<port name="AN" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="C" direction="input"/>
+			<port name="D" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="AOI211" type="COMB">
+			<property name="truthtable" value="0-00|-000"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="C0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="AOI2BB1" type="COMB">
+			<property name="truthtable" value="1-0|-10"/>
+			<port name="A0N" direction="input"/>
+			<port name="A1N" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NAND2" type="COMB">
+			<property name="truthtable" value="0-|-0"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="XOR2" type="COMB">
+			<property name="truthtable" value="01|10"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="XNOR2" type="COMB">
+			<property name="truthtable" value="11|00"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="AOI21" type="COMB">
+			<property name="truthtable" value="0-0|-00"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="AOI22" type="COMB">
+			<property name="truthtable" value="0-0-|0--0|-00-|-0-0"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="B1" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NAND3" type="COMB">
+			<property name="truthtable" value="0--|-0-|--0"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="C" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="OAI31" type="COMB">
+			<property name="truthtable" value="000-|---0"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="A2" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NOR3B" type="COMB">
+			<property name="truthtable" value="100"/>
+			<port name="AN" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="C" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NOR3" type="COMB">
+			<property name="truthtable" value="000"/>
+			<port name="A" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="C" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NAND2B" type="COMB">
+			<property name="truthtable" value="1-|-0"/>
+			<port name="AN" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="AOI31" type="COMB">
+			<property name="truthtable" value="0--0|-0-0|--00"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="A2" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="AOI222" type="COMB">
+			<property name="truthtable" value="0-0-0-|0-0--0|0--00-|0--0-0|-00-0-|-00--0|-0-00-|-0-0-0"/>
+			<port name="A0" direction="input"/>
+			<port name="A1" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="B1" direction="input"/>
+			<port name="C0" direction="input"/>
+			<port name="C1" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="OAI2BB1" type="COMB">
+			<property name="truthtable" value="11-|--0"/>
+			<port name="A0N" direction="input"/>
+			<port name="A1N" direction="input"/>
+			<port name="B0" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+		<module name="NAND3B" type="COMB">
+			<property name="truthtable" value="1--|-0-|--0"/>
+			<port name="AN" direction="input"/>
+			<port name="B" direction="input"/>
+			<port name="C" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+	</external>
+	<library name="work_lib">
+		<module name="display" type="GENERIC">
+			<port name="lcd_db" msb="7" lsb="0" direction="output"/>
+			<port name="clk" direction="input"/>
+			<port name="rst_n" direction="input"/>
+			<port name="lcd_en" direction="output"/>
+			<port name="lcd_rs" direction="output"/>
+			<port name="lcd_rw" direction="output"/>
+			<port name="lcd_rst" direction="output"/>
+			<contents>
+				<instance name="cnt_lcd_reg[0]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="cnt_lcd_reg[1]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="cnt_lcd_reg[2]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="cnt_lcd_reg[3]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="cnt_lcd_reg[4]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="cnt_lcd_reg[5]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="cnt_lcd_reg[6]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="cnt_lcd_reg[7]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="lcd_db_reg[3]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="lcd_db_reg[0]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="lcd_db_reg[6]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="lcd_db_reg[5]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="lcd_db_reg[2]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="lcd_db_reg[4]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="lcd_db_reg[1]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="U108" moduleRef="LOGIC_0" libraryRef="cell_lib"/>
+				<instance name="U109" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U110" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U111" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U112" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U113" moduleRef="LOGIC_1" libraryRef="cell_lib"/>
+				<instance name="U114" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U115" moduleRef="OAI211" libraryRef="cell_lib"/>
+				<instance name="U116" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U117" moduleRef="OAI2BB2" libraryRef="cell_lib"/>
+				<instance name="U118" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U119" moduleRef="MX2" libraryRef="cell_lib"/>
+				<instance name="U120" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U121" moduleRef="AOI2BB2" libraryRef="cell_lib"/>
+				<instance name="U122" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U123" moduleRef="OAI222" libraryRef="cell_lib"/>
+				<instance name="U124" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U125" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U126" moduleRef="OAI211" libraryRef="cell_lib"/>
+				<instance name="U127" moduleRef="OAI21" libraryRef="cell_lib"/>
+				<instance name="U128" moduleRef="MX2" libraryRef="cell_lib"/>
+				<instance name="U129" moduleRef="OR2" libraryRef="cell_lib"/>
+				<instance name="U130" moduleRef="NOR4B" libraryRef="cell_lib"/>
+				<instance name="U131" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U132" moduleRef="AOI211" libraryRef="cell_lib"/>
+				<instance name="U133" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U134" moduleRef="AOI2BB1" libraryRef="cell_lib"/>
+				<instance name="U135" moduleRef="NAND2" libraryRef="cell_lib"/>
+				<instance name="U136" moduleRef="XOR2" libraryRef="cell_lib"/>
+				<instance name="U137" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U138" moduleRef="XNOR2" libraryRef="cell_lib"/>
+				<instance name="U139" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U140" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U141" moduleRef="XOR2" libraryRef="cell_lib"/>
+				<instance name="U142" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U143" moduleRef="XOR2" libraryRef="cell_lib"/>
+				<instance name="U144" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U145" moduleRef="XOR2" libraryRef="cell_lib"/>
+				<instance name="U146" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U147" moduleRef="XOR2" libraryRef="cell_lib"/>
+				<instance name="U148" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U149" moduleRef="XNOR2" libraryRef="cell_lib"/>
+				<instance name="U150" moduleRef="OAI21" libraryRef="cell_lib"/>
+				<instance name="U151" moduleRef="AOI211" libraryRef="cell_lib"/>
+				<instance name="U152" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U153" moduleRef="AOI211" libraryRef="cell_lib"/>
+				<instance name="U154" moduleRef="OAI211" libraryRef="cell_lib"/>
+				<instance name="U155" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U156" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U157" moduleRef="OAI211" libraryRef="cell_lib"/>
+				<instance name="U158" moduleRef="AOI211" libraryRef="cell_lib"/>
+				<instance name="U159" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U160" moduleRef="AOI21" libraryRef="cell_lib"/>
+				<instance name="U161" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U162" moduleRef="OAI211" libraryRef="cell_lib"/>
+				<instance name="U163" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U164" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U165" moduleRef="AOI22" libraryRef="cell_lib"/>
+				<instance name="U166" moduleRef="MX2" libraryRef="cell_lib"/>
+				<instance name="U167" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U168" moduleRef="OAI21" libraryRef="cell_lib"/>
+				<instance name="U169" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U170" moduleRef="NAND3" libraryRef="cell_lib"/>
+				<instance name="U171" moduleRef="OAI31" libraryRef="cell_lib"/>
+				<instance name="U172" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U173" moduleRef="NAND3" libraryRef="cell_lib"/>
+				<instance name="U174" moduleRef="AOI211" libraryRef="cell_lib"/>
+				<instance name="U175" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U176" moduleRef="NOR3B" libraryRef="cell_lib"/>
+				<instance name="U177" moduleRef="NOR3" libraryRef="cell_lib"/>
+				<instance name="U178" moduleRef="MX2" libraryRef="cell_lib"/>
+				<instance name="U179" moduleRef="AOI2BB2" libraryRef="cell_lib"/>
+				<instance name="U180" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U181" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U182" moduleRef="NOR3" libraryRef="cell_lib"/>
+				<instance name="U183" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U184" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U185" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U186" moduleRef="NAND2B" libraryRef="cell_lib"/>
+				<instance name="U187" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U188" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U189" moduleRef="AOI22" libraryRef="cell_lib"/>
+				<instance name="U190" moduleRef="NOR3" libraryRef="cell_lib"/>
+				<instance name="U191" moduleRef="AOI31" libraryRef="cell_lib"/>
+				<instance name="U192" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U193" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U194" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U195" moduleRef="OAI211" libraryRef="cell_lib"/>
+				<instance name="U196" moduleRef="AOI222" libraryRef="cell_lib"/>
+				<instance name="U197" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U198" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U199" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U200" moduleRef="NAND2B" libraryRef="cell_lib"/>
+				<instance name="U201" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U202" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U203" moduleRef="OR2" libraryRef="cell_lib"/>
+				<instance name="U204" moduleRef="NOR3B" libraryRef="cell_lib"/>
+				<instance name="U205" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U206" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U207" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U208" moduleRef="AOI211" libraryRef="cell_lib"/>
+				<instance name="U209" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U210" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U211" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U212" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U213" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U214" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U215" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U216" moduleRef="OAI2BB1" libraryRef="cell_lib"/>
+				<instance name="U217" moduleRef="NAND3B" libraryRef="cell_lib"/>
+				<instance name="U218" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U219" moduleRef="NOR3" libraryRef="cell_lib"/>
+				<instance name="U220" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U221" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U222" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U223" moduleRef="AOI21" libraryRef="cell_lib"/>
+				<instance name="U224" moduleRef="NOR3" libraryRef="cell_lib"/>
+				<instance name="U225" moduleRef="NAND2B" libraryRef="cell_lib"/>
+				<instance name="U226" moduleRef="OAI2BB1" libraryRef="cell_lib"/>
+				<instance name="U227" moduleRef="NAND2B" libraryRef="cell_lib"/>
+				<instance name="U228" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U229" moduleRef="NAND2B" libraryRef="cell_lib"/>
+				<instance name="U230" moduleRef="NOR2B" libraryRef="cell_lib"/>
+				<instance name="U231" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U232" moduleRef="NOR2" libraryRef="cell_lib"/>
+				<instance name="U233" moduleRef="INV" libraryRef="cell_lib"/>
+				<net name="lcd_db[6]">
+					<portRef name="Q" instanceRef="lcd_db_reg[6]"/>
+					<portRef name="lcd_db[6]"/>
+				</net>
+				<net name="lcd_db[5]">
+					<portRef name="Q" instanceRef="lcd_db_reg[5]"/>
+					<portRef name="lcd_db[5]"/>
+				</net>
+				<net name="lcd_db[4]">
+					<portRef name="Q" instanceRef="lcd_db_reg[4]"/>
+					<portRef name="lcd_db[4]"/>
+				</net>
+				<net name="lcd_db[3]">
+					<portRef name="Q" instanceRef="lcd_db_reg[3]"/>
+					<portRef name="lcd_db[3]"/>
+				</net>
+				<net name="lcd_db[2]">
+					<portRef name="Q" instanceRef="lcd_db_reg[2]"/>
+					<portRef name="lcd_db[2]"/>
+				</net>
+				<net name="lcd_db[1]">
+					<portRef name="Q" instanceRef="lcd_db_reg[1]"/>
+					<portRef name="lcd_db[1]"/>
+				</net>
+				<net name="lcd_db[0]">
+					<portRef name="Q" instanceRef="lcd_db_reg[0]"/>
+					<portRef name="lcd_db[0]"/>
+				</net>
+				<net name="clk">
+					<portRef name="clk"/>
+					<portRef name="CK" instanceRef="cnt_lcd_reg[0]"/>
+					<portRef name="CK" instanceRef="cnt_lcd_reg[1]"/>
+					<portRef name="CK" instanceRef="cnt_lcd_reg[2]"/>
+					<portRef name="CK" instanceRef="cnt_lcd_reg[3]"/>
+					<portRef name="CK" instanceRef="cnt_lcd_reg[4]"/>
+					<portRef name="CK" instanceRef="cnt_lcd_reg[5]"/>
+					<portRef name="CK" instanceRef="cnt_lcd_reg[6]"/>
+					<portRef name="CK" instanceRef="cnt_lcd_reg[7]"/>
+					<portRef name="CK" instanceRef="lcd_db_reg[3]"/>
+					<portRef name="CK" instanceRef="lcd_db_reg[0]"/>
+					<portRef name="CK" instanceRef="lcd_db_reg[6]"/>
+					<portRef name="CK" instanceRef="lcd_db_reg[5]"/>
+					<portRef name="CK" instanceRef="lcd_db_reg[2]"/>
+					<portRef name="CK" instanceRef="lcd_db_reg[4]"/>
+					<portRef name="CK" instanceRef="lcd_db_reg[1]"/>
+				</net>
+				<net name="lcd_en">
+					<portRef name="Y" instanceRef="U232"/>
+					<portRef name="lcd_en"/>
+					<portRef name="A0" instanceRef="U174"/>
+					<portRef name="B" instanceRef="U225"/>
+					<portRef name="A" instanceRef="U231"/>
+				</net>
+				<net name="N8">
+					<portRef name="Y" instanceRef="U126"/>
+					<portRef name="D" instanceRef="lcd_db_reg[0]"/>
+				</net>
+				<net name="N9">
+					<portRef name="Y" instanceRef="U115"/>
+					<portRef name="D" instanceRef="lcd_db_reg[1]"/>
+				</net>
+				<net name="N10">
+					<portRef name="Y" instanceRef="U195"/>
+					<portRef name="D" instanceRef="lcd_db_reg[2]"/>
+				</net>
+				<net name="N11">
+					<portRef name="Y" instanceRef="U173"/>
+					<portRef name="D" instanceRef="lcd_db_reg[3]"/>
+				</net>
+				<net name="N12">
+					<portRef name="Y" instanceRef="U162"/>
+					<portRef name="D" instanceRef="lcd_db_reg[4]"/>
+				</net>
+				<net name="N13">
+					<portRef name="Y" instanceRef="U157"/>
+					<portRef name="D" instanceRef="lcd_db_reg[5]"/>
+				</net>
+				<net name="N14">
+					<portRef name="Y" instanceRef="U150"/>
+					<portRef name="D" instanceRef="lcd_db_reg[6]"/>
+				</net>
+				<net name="N17">
+					<portRef name="Y" instanceRef="U149"/>
+					<portRef name="D" instanceRef="cnt_lcd_reg[1]"/>
+				</net>
+				<net name="N18">
+					<portRef name="Y" instanceRef="U147"/>
+					<portRef name="D" instanceRef="cnt_lcd_reg[2]"/>
+				</net>
+				<net name="N19">
+					<portRef name="Y" instanceRef="U145"/>
+					<portRef name="D" instanceRef="cnt_lcd_reg[3]"/>
+				</net>
+				<net name="N20">
+					<portRef name="Y" instanceRef="U143"/>
+					<portRef name="D" instanceRef="cnt_lcd_reg[4]"/>
+				</net>
+				<net name="N21">
+					<portRef name="Y" instanceRef="U141"/>
+					<portRef name="D" instanceRef="cnt_lcd_reg[5]"/>
+				</net>
+				<net name="N22">
+					<portRef name="Y" instanceRef="U138"/>
+					<portRef name="D" instanceRef="cnt_lcd_reg[6]"/>
+				</net>
+				<net name="N23">
+					<portRef name="Y" instanceRef="U136"/>
+					<portRef name="D" instanceRef="cnt_lcd_reg[7]"/>
+				</net>
+				<net name="n97">
+					<portRef name="Y" instanceRef="U109"/>
+					<portRef name="A" instanceRef="U110"/>
+					<portRef name="C0" instanceRef="U123"/>
+					<portRef name="B" instanceRef="U142"/>
+					<portRef name="A" instanceRef="U167"/>
+					<portRef name="C" instanceRef="U177"/>
+				</net>
+				<net name="n98">
+					<portRef name="Y" instanceRef="U110"/>
+					<portRef name="B" instanceRef="U120"/>
+					<portRef name="S0" instanceRef="U128"/>
+					<portRef name="A" instanceRef="U135"/>
+					<portRef name="A" instanceRef="U143"/>
+					<portRef name="A0" instanceRef="U168"/>
+					<portRef name="A0" instanceRef="U171"/>
+					<portRef name="S0" instanceRef="U178"/>
+					<portRef name="AN" instanceRef="U198"/>
+					<portRef name="AN" instanceRef="U200"/>
+					<portRef name="B" instanceRef="U204"/>
+					<portRef name="AN" instanceRef="U213"/>
+					<portRef name="B" instanceRef="U217"/>
+					<portRef name="A" instanceRef="U224"/>
+					<portRef name="AN" instanceRef="U229"/>
+				</net>
+				<net name="n99">
+					<portRef name="Y" instanceRef="U111"/>
+					<portRef name="A" instanceRef="U112"/>
+					<portRef name="B" instanceRef="U149"/>
+					<portRef name="A1N" instanceRef="U216"/>
+				</net>
+				<net name="n100">
+					<portRef name="Y" instanceRef="U112"/>
+					<portRef name="S0" instanceRef="U119"/>
+					<portRef name="B" instanceRef="U125"/>
+					<portRef name="AN" instanceRef="U133"/>
+					<portRef name="AN" instanceRef="U148"/>
+					<portRef name="A" instanceRef="U161"/>
+					<portRef name="A0" instanceRef="U162"/>
+					<portRef name="A" instanceRef="U177"/>
+					<portRef name="AN" instanceRef="U186"/>
+					<portRef name="A" instanceRef="U190"/>
+					<portRef name="B" instanceRef="U197"/>
+					<portRef name="AN" instanceRef="U202"/>
+					<portRef name="AN" instanceRef="U204"/>
+					<portRef name="AN" instanceRef="U207"/>
+					<portRef name="A" instanceRef="U215"/>
+					<portRef name="A1N" instanceRef="U226"/>
+				</net>
+				<net name="n101">
+					<portRef name="Y" instanceRef="U125"/>
+					<portRef name="A0" instanceRef="U115"/>
+				</net>
+				<net name="n102">
+					<portRef name="Y" instanceRef="U135"/>
+					<portRef name="A1" instanceRef="U115"/>
+					<portRef name="A1" instanceRef="U126"/>
+				</net>
+				<net name="n103">
+					<portRef name="Y" instanceRef="U121"/>
+					<portRef name="B0" instanceRef="U115"/>
+				</net>
+				<net name="n104">
+					<portRef name="Y" instanceRef="U116"/>
+					<portRef name="C0" instanceRef="U115"/>
+				</net>
+				<net name="n105">
+					<portRef name="Y" instanceRef="U191"/>
+					<portRef name="AN" instanceRef="U116"/>
+					<portRef name="A" instanceRef="U173"/>
+				</net>
+				<net name="n106">
+					<portRef name="Y" instanceRef="U117"/>
+					<portRef name="B" instanceRef="U116"/>
+				</net>
+				<net name="n107">
+					<portRef name="Y" instanceRef="U118"/>
+					<portRef name="B0" instanceRef="U117"/>
+				</net>
+				<net name="n108">
+					<portRef name="Y" instanceRef="U225"/>
+					<portRef name="B1" instanceRef="U117"/>
+					<portRef name="A1" instanceRef="U150"/>
+					<portRef name="B" instanceRef="U167"/>
+					<portRef name="A1N" instanceRef="U179"/>
+					<portRef name="B" instanceRef="U201"/>
+					<portRef name="A" instanceRef="U222"/>
+					<portRef name="B" instanceRef="U224"/>
+				</net>
+				<net name="n109">
+					<portRef name="Y" instanceRef="U201"/>
+					<portRef name="A0N" instanceRef="U117"/>
+					<portRef name="B" instanceRef="U135"/>
+					<portRef name="AN" instanceRef="U175"/>
+					<portRef name="B0" instanceRef="U189"/>
+					<portRef name="C0" instanceRef="U196"/>
+					<portRef name="B" instanceRef="U200"/>
+				</net>
+				<net name="n110">
+					<portRef name="Y" instanceRef="U185"/>
+					<portRef name="A1N" instanceRef="U117"/>
+					<portRef name="C0" instanceRef="U132"/>
+					<portRef name="A" instanceRef="U182"/>
+				</net>
+				<net name="n111">
+					<portRef name="Y" instanceRef="U205"/>
+					<portRef name="A" instanceRef="U118"/>
+					<portRef name="A0" instanceRef="U153"/>
+					<portRef name="A0" instanceRef="U158"/>
+					<portRef name="B0" instanceRef="U165"/>
+					<portRef name="A" instanceRef="U203"/>
+				</net>
+				<net name="n112">
+					<portRef name="Y" instanceRef="U119"/>
+					<portRef name="B" instanceRef="U118"/>
+				</net>
+				<net name="n113">
+					<portRef name="Y" instanceRef="U120"/>
+					<portRef name="A" instanceRef="U119"/>
+				</net>
+				<net name="n114">
+					<portRef name="Y" instanceRef="U171"/>
+					<portRef name="B" instanceRef="U119"/>
+					<portRef name="C" instanceRef="U170"/>
+				</net>
+				<net name="n115">
+					<portRef name="Y" instanceRef="U218"/>
+					<portRef name="AN" instanceRef="U120"/>
+					<portRef name="B" instanceRef="U124"/>
+					<portRef name="AN" instanceRef="U192"/>
+					<portRef name="A" instanceRef="U210"/>
+					<portRef name="C" instanceRef="U217"/>
+				</net>
+				<net name="n116">
+					<portRef name="Y" instanceRef="U230"/>
+					<portRef name="B0" instanceRef="U121"/>
+					<portRef name="A1" instanceRef="U158"/>
+					<portRef name="A" instanceRef="U170"/>
+					<portRef name="B0" instanceRef="U179"/>
+					<portRef name="A1" instanceRef="U196"/>
+					<portRef name="A" instanceRef="U214"/>
+					<portRef name="B" instanceRef="U229"/>
+				</net>
+				<net name="n117">
+					<portRef name="Y" instanceRef="U123"/>
+					<portRef name="B1" instanceRef="U121"/>
+				</net>
+				<net name="n118">
+					<portRef name="Y" instanceRef="U122"/>
+					<portRef name="A0N" instanceRef="U121"/>
+				</net>
+				<net name="n119">
+					<portRef name="Y" instanceRef="U229"/>
+					<portRef name="A1N" instanceRef="U121"/>
+					<portRef name="B" instanceRef="U131"/>
+					<portRef name="A" instanceRef="U228"/>
+				</net>
+				<net name="n120">
+					<portRef name="Y" instanceRef="U181"/>
+					<portRef name="A" instanceRef="U122"/>
+					<portRef name="B" instanceRef="U180"/>
+				</net>
+				<net name="n121">
+					<portRef name="Y" instanceRef="U207"/>
+					<portRef name="B" instanceRef="U122"/>
+					<portRef name="AN" instanceRef="U184"/>
+					<portRef name="AN" instanceRef="U205"/>
+				</net>
+				<net name="n122">
+					<portRef name="Y" instanceRef="U227"/>
+					<portRef name="A0" instanceRef="U123"/>
+					<portRef name="A0" instanceRef="U126"/>
+					<portRef name="B" instanceRef="U175"/>
+					<portRef name="A" instanceRef="U187"/>
+					<portRef name="C" instanceRef="U204"/>
+					<portRef name="C" instanceRef="U224"/>
+					<portRef name="B0" instanceRef="U226"/>
+				</net>
+				<net name="n123">
+					<portRef name="Y" instanceRef="U206"/>
+					<portRef name="A1" instanceRef="U123"/>
+					<portRef name="A1N" instanceRef="U134"/>
+					<portRef name="B" instanceRef="U146"/>
+					<portRef name="B" instanceRef="U205"/>
+				</net>
+				<net name="n124">
+					<portRef name="Y" instanceRef="U221"/>
+					<portRef name="B0" instanceRef="U123"/>
+					<portRef name="B" instanceRef="U140"/>
+					<portRef name="A1" instanceRef="U157"/>
+					<portRef name="C" instanceRef="U190"/>
+					<portRef name="B" instanceRef="U202"/>
+					<portRef name="B" instanceRef="U219"/>
+				</net>
+				<net name="n125">
+					<portRef name="Y" instanceRef="U124"/>
+					<portRef name="B1" instanceRef="U123"/>
+				</net>
+				<net name="n126">
+					<portRef name="Y" instanceRef="U186"/>
+					<portRef name="C1" instanceRef="U123"/>
+					<portRef name="A" instanceRef="U185"/>
+				</net>
+				<net name="n127">
+					<portRef name="Y" instanceRef="U197"/>
+					<portRef name="A" instanceRef="U124"/>
+					<portRef name="C1" instanceRef="U196"/>
+				</net>
+				<net name="n128">
+					<portRef name="Y" instanceRef="U130"/>
+					<portRef name="B0" instanceRef="U126"/>
+				</net>
+				<net name="n129">
+					<portRef name="Y" instanceRef="U127"/>
+					<portRef name="C0" instanceRef="U126"/>
+				</net>
+				<net name="n130">
+					<portRef name="Y" instanceRef="U177"/>
+					<portRef name="A0" instanceRef="U127"/>
+					<portRef name="AN" instanceRef="U176"/>
+				</net>
+				<net name="n131">
+					<portRef name="Y" instanceRef="U128"/>
+					<portRef name="A1" instanceRef="U127"/>
+				</net>
+				<net name="n132">
+					<portRef name="Y" instanceRef="U222"/>
+					<portRef name="B0" instanceRef="U127"/>
+					<portRef name="A0" instanceRef="U165"/>
+					<portRef name="A0" instanceRef="U189"/>
+					<portRef name="AN" instanceRef="U194"/>
+					<portRef name="A0" instanceRef="U208"/>
+				</net>
+				<net name="n133">
+					<portRef name="Y" instanceRef="U129"/>
+					<portRef name="A" instanceRef="U128"/>
+				</net>
+				<net name="n134">
+					<portRef name="Y" instanceRef="U183"/>
+					<portRef name="B" instanceRef="U128"/>
+					<portRef name="C" instanceRef="U182"/>
+				</net>
+				<net name="n135">
+					<portRef name="Y" instanceRef="U184"/>
+					<portRef name="A" instanceRef="U129"/>
+					<portRef name="B" instanceRef="U182"/>
+				</net>
+				<net name="n136">
+					<portRef name="Y" instanceRef="U215"/>
+					<portRef name="B" instanceRef="U129"/>
+					<portRef name="AN" instanceRef="U211"/>
+				</net>
+				<net name="n137">
+					<portRef name="Y" instanceRef="U189"/>
+					<portRef name="AN" instanceRef="U130"/>
+					<portRef name="A" instanceRef="U178"/>
+				</net>
+				<net name="n138">
+					<portRef name="Y" instanceRef="U176"/>
+					<portRef name="B" instanceRef="U130"/>
+					<portRef name="B0" instanceRef="U151"/>
+					<portRef name="B0" instanceRef="U174"/>
+				</net>
+				<net name="n139">
+					<portRef name="Y" instanceRef="U131"/>
+					<portRef name="C" instanceRef="U130"/>
+				</net>
+				<net name="n140">
+					<portRef name="Y" instanceRef="U209"/>
+					<portRef name="D" instanceRef="U130"/>
+					<portRef name="C0" instanceRef="U208"/>
+				</net>
+				<net name="n141">
+					<portRef name="Y" instanceRef="U132"/>
+					<portRef name="A" instanceRef="U131"/>
+				</net>
+				<net name="n142">
+					<portRef name="Y" instanceRef="U161"/>
+					<portRef name="A1" instanceRef="U132"/>
+					<portRef name="A" instanceRef="U156"/>
+					<portRef name="A0" instanceRef="U160"/>
+				</net>
+				<net name="n143">
+					<portRef name="Y" instanceRef="U133"/>
+					<portRef name="B0" instanceRef="U132"/>
+				</net>
+				<net name="n144">
+					<portRef name="Y" instanceRef="U134"/>
+					<portRef name="B" instanceRef="U133"/>
+				</net>
+				<net name="n145">
+					<portRef name="Y" instanceRef="U219"/>
+					<portRef name="B0" instanceRef="U134"/>
+					<portRef name="A" instanceRef="U155"/>
+					<portRef name="A1" instanceRef="U165"/>
+					<portRef name="A0N" instanceRef="U216"/>
+				</net>
+				<net name="n146">
+					<portRef name="Y" instanceRef="U137"/>
+					<portRef name="B" instanceRef="U136"/>
+				</net>
+				<net name="n147">
+					<portRef name="Y" instanceRef="U140"/>
+					<portRef name="AN" instanceRef="U137"/>
+					<portRef name="A" instanceRef="U138"/>
+				</net>
+				<net name="n148">
+					<portRef name="Y" instanceRef="U139"/>
+					<portRef name="B" instanceRef="U137"/>
+					<portRef name="B" instanceRef="U138"/>
+				</net>
+				<net name="n149">
+					<portRef name="Y" instanceRef="U142"/>
+					<portRef name="AN" instanceRef="U140"/>
+					<portRef name="B" instanceRef="U141"/>
+				</net>
+				<net name="n150">
+					<portRef name="Y" instanceRef="U144"/>
+					<portRef name="AN" instanceRef="U142"/>
+					<portRef name="B" instanceRef="U143"/>
+				</net>
+				<net name="n151">
+					<portRef name="Y" instanceRef="U146"/>
+					<portRef name="AN" instanceRef="U144"/>
+					<portRef name="B" instanceRef="U145"/>
+				</net>
+				<net name="n152">
+					<portRef name="Y" instanceRef="U220"/>
+					<portRef name="B" instanceRef="U144"/>
+					<portRef name="B" instanceRef="U161"/>
+					<portRef name="A2" instanceRef="U171"/>
+					<portRef name="B" instanceRef="U183"/>
+					<portRef name="C" instanceRef="U219"/>
+				</net>
+				<net name="n153">
+					<portRef name="Y" instanceRef="U148"/>
+					<portRef name="AN" instanceRef="U146"/>
+					<portRef name="B" instanceRef="U147"/>
+				</net>
+				<net name="n154">
+					<portRef name="Y" instanceRef="U153"/>
+					<portRef name="A0" instanceRef="U150"/>
+				</net>
+				<net name="n155">
+					<portRef name="Y" instanceRef="U151"/>
+					<portRef name="B0" instanceRef="U150"/>
+				</net>
+				<net name="n156">
+					<portRef name="Y" instanceRef="U187"/>
+					<portRef name="A0" instanceRef="U151"/>
+					<portRef name="B" instanceRef="U186"/>
+				</net>
+				<net name="n157">
+					<portRef name="Y" instanceRef="U228"/>
+					<portRef name="A1" instanceRef="U151"/>
+					<portRef name="A1" instanceRef="U160"/>
+					<portRef name="A" instanceRef="U193"/>
+					<portRef name="A0" instanceRef="U223"/>
+				</net>
+				<net name="n158">
+					<portRef name="Y" instanceRef="U152"/>
+					<portRef name="C0" instanceRef="U151"/>
+				</net>
+				<net name="n159">
+					<portRef name="Y" instanceRef="U214"/>
+					<portRef name="A" instanceRef="U152"/>
+					<portRef name="B0" instanceRef="U168"/>
+					<portRef name="C" instanceRef="U176"/>
+					<portRef name="B" instanceRef="U213"/>
+				</net>
+				<net name="n160">
+					<portRef name="Y" instanceRef="U217"/>
+					<portRef name="B" instanceRef="U152"/>
+					<portRef name="B0" instanceRef="U216"/>
+				</net>
+				<net name="n161">
+					<portRef name="Y" instanceRef="U204"/>
+					<portRef name="B0" instanceRef="U153"/>
+					<portRef name="A1" instanceRef="U174"/>
+					<portRef name="B" instanceRef="U203"/>
+				</net>
+				<net name="n162">
+					<portRef name="Y" instanceRef="U154"/>
+					<portRef name="C0" instanceRef="U153"/>
+				</net>
+				<net name="n163">
+					<portRef name="Y" instanceRef="U156"/>
+					<portRef name="A1" instanceRef="U154"/>
+				</net>
+				<net name="n164">
+					<portRef name="Y" instanceRef="U155"/>
+					<portRef name="B0" instanceRef="U154"/>
+				</net>
+				<net name="n165">
+					<portRef name="Y" instanceRef="U172"/>
+					<portRef name="C0" instanceRef="U154"/>
+					<portRef name="B0" instanceRef="U171"/>
+				</net>
+				<net name="n166">
+					<portRef name="Y" instanceRef="U160"/>
+					<portRef name="A0" instanceRef="U157"/>
+				</net>
+				<net name="n167">
+					<portRef name="Y" instanceRef="U158"/>
+					<portRef name="B0" instanceRef="U157"/>
+				</net>
+				<net name="n168">
+					<portRef name="Y" instanceRef="U170"/>
+					<portRef name="C0" instanceRef="U157"/>
+					<portRef name="AN" instanceRef="U169"/>
+				</net>
+				<net name="n169">
+					<portRef name="Y" instanceRef="U164"/>
+					<portRef name="B0" instanceRef="U158"/>
+					<portRef name="A" instanceRef="U163"/>
+				</net>
+				<net name="n170">
+					<portRef name="Y" instanceRef="U159"/>
+					<portRef name="C0" instanceRef="U158"/>
+				</net>
+				<net name="n171">
+					<portRef name="Y" instanceRef="U199"/>
+					<portRef name="AN" instanceRef="U159"/>
+					<portRef name="B1" instanceRef="U196"/>
+				</net>
+				<net name="n172">
+					<portRef name="Y" instanceRef="U182"/>
+					<portRef name="B" instanceRef="U159"/>
+					<portRef name="AN" instanceRef="U180"/>
+				</net>
+				<net name="n173">
+					<portRef name="Y" instanceRef="U211"/>
+					<portRef name="B0" instanceRef="U160"/>
+					<portRef name="B0" instanceRef="U208"/>
+				</net>
+				<net name="n174">
+					<portRef name="Y" instanceRef="U169"/>
+					<portRef name="A1" instanceRef="U162"/>
+				</net>
+				<net name="n175">
+					<portRef name="Y" instanceRef="U165"/>
+					<portRef name="B0" instanceRef="U162"/>
+				</net>
+				<net name="n176">
+					<portRef name="Y" instanceRef="U163"/>
+					<portRef name="C0" instanceRef="U162"/>
+				</net>
+				<net name="n177">
+					<portRef name="Y" instanceRef="U190"/>
+					<portRef name="AN" instanceRef="U164"/>
+					<portRef name="A1" instanceRef="U189"/>
+				</net>
+				<net name="n178">
+					<portRef name="Y" instanceRef="U200"/>
+					<portRef name="B" instanceRef="U164"/>
+					<portRef name="A" instanceRef="U199"/>
+				</net>
+				<net name="n179">
+					<portRef name="Y" instanceRef="U166"/>
+					<portRef name="B1" instanceRef="U165"/>
+				</net>
+				<net name="n180">
+					<portRef name="Y" instanceRef="U168"/>
+					<portRef name="A" instanceRef="U166"/>
+				</net>
+				<net name="n181">
+					<portRef name="Y" instanceRef="U167"/>
+					<portRef name="B" instanceRef="U166"/>
+				</net>
+				<net name="n182">
+					<portRef name="Y" instanceRef="U231"/>
+					<portRef name="A1" instanceRef="U168"/>
+					<portRef name="B" instanceRef="U230"/>
+				</net>
+				<net name="n183">
+					<portRef name="Y" instanceRef="U224"/>
+					<portRef name="B" instanceRef="U169"/>
+					<portRef name="B0" instanceRef="U223"/>
+				</net>
+				<net name="n184">
+					<portRef name="Y" instanceRef="U198"/>
+					<portRef name="A" instanceRef="U172"/>
+					<portRef name="AN" instanceRef="U197"/>
+				</net>
+				<net name="n185">
+					<portRef name="Y" instanceRef="U178"/>
+					<portRef name="B" instanceRef="U173"/>
+				</net>
+				<net name="n186">
+					<portRef name="Y" instanceRef="U174"/>
+					<portRef name="C" instanceRef="U173"/>
+				</net>
+				<net name="n187">
+					<portRef name="Y" instanceRef="U175"/>
+					<portRef name="C0" instanceRef="U174"/>
+				</net>
+				<net name="n188">
+					<portRef name="Y" instanceRef="U179"/>
+					<portRef name="B" instanceRef="U178"/>
+				</net>
+				<net name="n189">
+					<portRef name="Y" instanceRef="U188"/>
+					<portRef name="B1" instanceRef="U179"/>
+				</net>
+				<net name="n190">
+					<portRef name="Y" instanceRef="U180"/>
+					<portRef name="A0N" instanceRef="U179"/>
+				</net>
+				<net name="n191">
+					<portRef name="Y" instanceRef="U202"/>
+					<portRef name="AN" instanceRef="U181"/>
+					<portRef name="AN" instanceRef="U183"/>
+					<portRef name="AN" instanceRef="U188"/>
+					<portRef name="B1" instanceRef="U189"/>
+					<portRef name="B0" instanceRef="U196"/>
+				</net>
+				<net name="n192">
+					<portRef name="Y" instanceRef="U213"/>
+					<portRef name="A2" instanceRef="U191"/>
+					<portRef name="AN" instanceRef="U209"/>
+					<portRef name="A" instanceRef="U212"/>
+				</net>
+				<net name="n193">
+					<portRef name="Y" instanceRef="U192"/>
+					<portRef name="B0" instanceRef="U191"/>
+				</net>
+				<net name="n194">
+					<portRef name="Y" instanceRef="U193"/>
+					<portRef name="B" instanceRef="U192"/>
+				</net>
+				<net name="n195">
+					<portRef name="Y" instanceRef="U194"/>
+					<portRef name="B" instanceRef="U193"/>
+				</net>
+				<net name="n196">
+					<portRef name="Y" instanceRef="U223"/>
+					<portRef name="A1" instanceRef="U195"/>
+				</net>
+				<net name="n197">
+					<portRef name="Y" instanceRef="U208"/>
+					<portRef name="B0" instanceRef="U195"/>
+				</net>
+				<net name="n198">
+					<portRef name="Y" instanceRef="U196"/>
+					<portRef name="C0" instanceRef="U195"/>
+				</net>
+				<net name="n199">
+					<portRef name="Y" instanceRef="U203"/>
+					<portRef name="A0" instanceRef="U196"/>
+				</net>
+				<net name="n200">
+					<portRef name="Y" instanceRef="U216"/>
+					<portRef name="A1" instanceRef="U208"/>
+				</net>
+				<net name="n201">
+					<portRef name="Y" instanceRef="U210"/>
+					<portRef name="B" instanceRef="U209"/>
+				</net>
+				<net name="n202">
+					<portRef name="Y" instanceRef="U212"/>
+					<portRef name="B" instanceRef="U211"/>
+				</net>
+				<net name="n203">
+					<portRef name="Y" instanceRef="U226"/>
+					<portRef name="A1" instanceRef="U223"/>
+				</net>
+				<net name="n204">
+					<portRef name="Y" instanceRef="U114"/>
+					<portRef name="RN" instanceRef="cnt_lcd_reg[0]"/>
+					<portRef name="RN" instanceRef="cnt_lcd_reg[1]"/>
+					<portRef name="RN" instanceRef="cnt_lcd_reg[2]"/>
+					<portRef name="RN" instanceRef="cnt_lcd_reg[3]"/>
+					<portRef name="RN" instanceRef="cnt_lcd_reg[4]"/>
+					<portRef name="RN" instanceRef="cnt_lcd_reg[5]"/>
+					<portRef name="RN" instanceRef="cnt_lcd_reg[6]"/>
+					<portRef name="RN" instanceRef="cnt_lcd_reg[7]"/>
+					<portRef name="RN" instanceRef="lcd_db_reg[3]"/>
+					<portRef name="RN" instanceRef="lcd_db_reg[0]"/>
+					<portRef name="RN" instanceRef="lcd_db_reg[6]"/>
+					<portRef name="RN" instanceRef="lcd_db_reg[5]"/>
+					<portRef name="RN" instanceRef="lcd_db_reg[2]"/>
+					<portRef name="RN" instanceRef="lcd_db_reg[4]"/>
+					<portRef name="RN" instanceRef="lcd_db_reg[1]"/>
+				</net>
+				<net name="n205">
+					<portRef name="Y" instanceRef="U233"/>
+					<portRef name="D" instanceRef="cnt_lcd_reg[0]"/>
+					<portRef name="B" instanceRef="U148"/>
+					<portRef name="B" instanceRef="U232"/>
+				</net>
+				<net name="cnt_lcd[7]">
+					<portRef name="Q" instanceRef="cnt_lcd_reg[7]"/>
+					<portRef name="A" instanceRef="U136"/>
+					<portRef name="AN" instanceRef="U225"/>
+					<portRef name="AN" instanceRef="U230"/>
+				</net>
+				<net name="cnt_lcd[6]">
+					<portRef name="Q" instanceRef="cnt_lcd_reg[6]"/>
+					<portRef name="A" instanceRef="U139"/>
+					<portRef name="A" instanceRef="U232"/>
+				</net>
+				<net name="cnt_lcd[5]">
+					<portRef name="Q" instanceRef="cnt_lcd_reg[5]"/>
+					<portRef name="AN" instanceRef="U125"/>
+					<portRef name="A0N" instanceRef="U134"/>
+					<portRef name="A" instanceRef="U141"/>
+					<portRef name="A1" instanceRef="U153"/>
+					<portRef name="S0" instanceRef="U166"/>
+					<portRef name="B" instanceRef="U170"/>
+					<portRef name="B" instanceRef="U177"/>
+					<portRef name="B" instanceRef="U184"/>
+					<portRef name="B" instanceRef="U194"/>
+					<portRef name="AN" instanceRef="U217"/>
+					<portRef name="A" instanceRef="U221"/>
+					<portRef name="AN" instanceRef="U227"/>
+				</net>
+				<net name="cnt_lcd[4]">
+					<portRef name="Q" instanceRef="cnt_lcd_reg[4]"/>
+					<portRef name="A" instanceRef="U109"/>
+				</net>
+				<net name="cnt_lcd[3]">
+					<portRef name="Q" instanceRef="cnt_lcd_reg[3]"/>
+					<portRef name="A" instanceRef="U145"/>
+					<portRef name="B" instanceRef="U188"/>
+					<portRef name="B" instanceRef="U190"/>
+					<portRef name="A0" instanceRef="U191"/>
+					<portRef name="B" instanceRef="U198"/>
+					<portRef name="B" instanceRef="U207"/>
+					<portRef name="B" instanceRef="U218"/>
+					<portRef name="A" instanceRef="U220"/>
+					<portRef name="A0N" instanceRef="U226"/>
+					<portRef name="B" instanceRef="U227"/>
+				</net>
+				<net name="cnt_lcd[2]">
+					<portRef name="Q" instanceRef="cnt_lcd_reg[2]"/>
+					<portRef name="A0" instanceRef="U132"/>
+					<portRef name="A" instanceRef="U147"/>
+					<portRef name="A0" instanceRef="U154"/>
+					<portRef name="A1" instanceRef="U171"/>
+					<portRef name="B" instanceRef="U176"/>
+					<portRef name="B" instanceRef="U181"/>
+					<portRef name="A1" instanceRef="U191"/>
+					<portRef name="A0" instanceRef="U195"/>
+					<portRef name="AN" instanceRef="U201"/>
+					<portRef name="A" instanceRef="U206"/>
+					<portRef name="B" instanceRef="U215"/>
+					<portRef name="A" instanceRef="U218"/>
+					<portRef name="A" instanceRef="U219"/>
+				</net>
+				<net name="cnt_lcd[1]">
+					<portRef name="Q" instanceRef="cnt_lcd_reg[1]"/>
+					<portRef name="A" instanceRef="U111"/>
+				</net>
+				<net name="cnt_lcd[0]">
+					<portRef name="Q" instanceRef="cnt_lcd_reg[0]"/>
+					<portRef name="A" instanceRef="U149"/>
+					<portRef name="A" instanceRef="U233"/>
+				</net>
+				<net name="lcd_rs">
+					<portRef name="LOGIC_1_PIN" instanceRef="U113"/>
+					<portRef name="lcd_rs"/>
+				</net>
+				<net name="lcd_rw">
+					<portRef name="LOGIC_0_PIN" instanceRef="U108"/>
+					<portRef name="lcd_db[7]"/>
+					<portRef name="lcd_rw"/>
+				</net>
+				<net name="lcd_rst">
+					<portRef name="rst_n"/>
+					<portRef name="lcd_rst"/>
+					<portRef name="A" instanceRef="U114"/>
+				</net>
+			</contents>
+		</module>
+	</library>
+	<topModule name="display" libraryRef="work_lib"/>
+</design>
+

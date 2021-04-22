@@ -1,0 +1,290 @@
+<design name="inverter">
+	<external name="cell_lib">
+		<module name="DFFRHQ" type="FFLATCH">
+			<property name="edge" value="rise"/>
+			<port name="D" direction="input"/>
+			<port name="CK" direction="input" type="clock"/>
+			<port name="RN" direction="input" type="reset"/>
+			<port name="Q" direction="output"/>
+		</module>
+		<module name="INV" type="COMB">
+			<property name="truthtable" value="0"/>
+			<port name="A" direction="input"/>
+			<port name="Y" direction="output"/>
+		</module>
+	</external>
+	<library name="work_lib">
+		<module name="inverter" type="GENERIC">
+			<port name="di" msb="15" lsb="0" direction="input"/>
+			<port name="do" msb="15" lsb="0" direction="output"/>
+			<port name="clk" direction="input"/>
+			<port name="rstn" direction="input"/>
+			<contents>
+				<instance name="do_reg[15]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[14]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[13]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[12]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[11]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[10]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[9]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[8]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[7]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[6]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[5]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[4]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[3]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[2]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[1]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="do_reg[0]" moduleRef="DFFRHQ" libraryRef="cell_lib"/>
+				<instance name="U19" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U20" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U21" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U22" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U23" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U24" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U25" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U26" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U27" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U28" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U29" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U30" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U31" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U32" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U33" moduleRef="INV" libraryRef="cell_lib"/>
+				<instance name="U34" moduleRef="INV" libraryRef="cell_lib"/>
+				<net name="di[15]">
+					<portRef name="di[15]"/>
+					<portRef name="A" instanceRef="U34"/>
+				</net>
+				<net name="di[14]">
+					<portRef name="di[14]"/>
+					<portRef name="A" instanceRef="U26"/>
+				</net>
+				<net name="di[13]">
+					<portRef name="di[13]"/>
+					<portRef name="A" instanceRef="U25"/>
+				</net>
+				<net name="di[12]">
+					<portRef name="di[12]"/>
+					<portRef name="A" instanceRef="U24"/>
+				</net>
+				<net name="di[11]">
+					<portRef name="di[11]"/>
+					<portRef name="A" instanceRef="U23"/>
+				</net>
+				<net name="di[10]">
+					<portRef name="di[10]"/>
+					<portRef name="A" instanceRef="U22"/>
+				</net>
+				<net name="di[9]">
+					<portRef name="di[9]"/>
+					<portRef name="A" instanceRef="U21"/>
+				</net>
+				<net name="di[8]">
+					<portRef name="di[8]"/>
+					<portRef name="A" instanceRef="U20"/>
+				</net>
+				<net name="di[7]">
+					<portRef name="di[7]"/>
+					<portRef name="A" instanceRef="U19"/>
+				</net>
+				<net name="di[6]">
+					<portRef name="di[6]"/>
+					<portRef name="A" instanceRef="U33"/>
+				</net>
+				<net name="di[5]">
+					<portRef name="di[5]"/>
+					<portRef name="A" instanceRef="U32"/>
+				</net>
+				<net name="di[4]">
+					<portRef name="di[4]"/>
+					<portRef name="A" instanceRef="U31"/>
+				</net>
+				<net name="di[3]">
+					<portRef name="di[3]"/>
+					<portRef name="A" instanceRef="U30"/>
+				</net>
+				<net name="di[2]">
+					<portRef name="di[2]"/>
+					<portRef name="A" instanceRef="U29"/>
+				</net>
+				<net name="di[1]">
+					<portRef name="di[1]"/>
+					<portRef name="A" instanceRef="U28"/>
+				</net>
+				<net name="di[0]">
+					<portRef name="di[0]"/>
+					<portRef name="A" instanceRef="U27"/>
+				</net>
+				<net name="do[15]">
+					<portRef name="Q" instanceRef="do_reg[15]"/>
+					<portRef name="do[15]"/>
+				</net>
+				<net name="do[14]">
+					<portRef name="Q" instanceRef="do_reg[14]"/>
+					<portRef name="do[14]"/>
+				</net>
+				<net name="do[13]">
+					<portRef name="Q" instanceRef="do_reg[13]"/>
+					<portRef name="do[13]"/>
+				</net>
+				<net name="do[12]">
+					<portRef name="Q" instanceRef="do_reg[12]"/>
+					<portRef name="do[12]"/>
+				</net>
+				<net name="do[11]">
+					<portRef name="Q" instanceRef="do_reg[11]"/>
+					<portRef name="do[11]"/>
+				</net>
+				<net name="do[10]">
+					<portRef name="Q" instanceRef="do_reg[10]"/>
+					<portRef name="do[10]"/>
+				</net>
+				<net name="do[9]">
+					<portRef name="Q" instanceRef="do_reg[9]"/>
+					<portRef name="do[9]"/>
+				</net>
+				<net name="do[8]">
+					<portRef name="Q" instanceRef="do_reg[8]"/>
+					<portRef name="do[8]"/>
+				</net>
+				<net name="do[7]">
+					<portRef name="Q" instanceRef="do_reg[7]"/>
+					<portRef name="do[7]"/>
+				</net>
+				<net name="do[6]">
+					<portRef name="Q" instanceRef="do_reg[6]"/>
+					<portRef name="do[6]"/>
+				</net>
+				<net name="do[5]">
+					<portRef name="Q" instanceRef="do_reg[5]"/>
+					<portRef name="do[5]"/>
+				</net>
+				<net name="do[4]">
+					<portRef name="Q" instanceRef="do_reg[4]"/>
+					<portRef name="do[4]"/>
+				</net>
+				<net name="do[3]">
+					<portRef name="Q" instanceRef="do_reg[3]"/>
+					<portRef name="do[3]"/>
+				</net>
+				<net name="do[2]">
+					<portRef name="Q" instanceRef="do_reg[2]"/>
+					<portRef name="do[2]"/>
+				</net>
+				<net name="do[1]">
+					<portRef name="Q" instanceRef="do_reg[1]"/>
+					<portRef name="do[1]"/>
+				</net>
+				<net name="do[0]">
+					<portRef name="Q" instanceRef="do_reg[0]"/>
+					<portRef name="do[0]"/>
+				</net>
+				<net name="clk">
+					<portRef name="clk"/>
+					<portRef name="CK" instanceRef="do_reg[15]"/>
+					<portRef name="CK" instanceRef="do_reg[14]"/>
+					<portRef name="CK" instanceRef="do_reg[13]"/>
+					<portRef name="CK" instanceRef="do_reg[12]"/>
+					<portRef name="CK" instanceRef="do_reg[11]"/>
+					<portRef name="CK" instanceRef="do_reg[10]"/>
+					<portRef name="CK" instanceRef="do_reg[9]"/>
+					<portRef name="CK" instanceRef="do_reg[8]"/>
+					<portRef name="CK" instanceRef="do_reg[7]"/>
+					<portRef name="CK" instanceRef="do_reg[6]"/>
+					<portRef name="CK" instanceRef="do_reg[5]"/>
+					<portRef name="CK" instanceRef="do_reg[4]"/>
+					<portRef name="CK" instanceRef="do_reg[3]"/>
+					<portRef name="CK" instanceRef="do_reg[2]"/>
+					<portRef name="CK" instanceRef="do_reg[1]"/>
+					<portRef name="CK" instanceRef="do_reg[0]"/>
+				</net>
+				<net name="rstn">
+					<portRef name="rstn"/>
+					<portRef name="RN" instanceRef="do_reg[15]"/>
+					<portRef name="RN" instanceRef="do_reg[14]"/>
+					<portRef name="RN" instanceRef="do_reg[13]"/>
+					<portRef name="RN" instanceRef="do_reg[12]"/>
+					<portRef name="RN" instanceRef="do_reg[11]"/>
+					<portRef name="RN" instanceRef="do_reg[10]"/>
+					<portRef name="RN" instanceRef="do_reg[9]"/>
+					<portRef name="RN" instanceRef="do_reg[8]"/>
+					<portRef name="RN" instanceRef="do_reg[7]"/>
+					<portRef name="RN" instanceRef="do_reg[6]"/>
+					<portRef name="RN" instanceRef="do_reg[5]"/>
+					<portRef name="RN" instanceRef="do_reg[4]"/>
+					<portRef name="RN" instanceRef="do_reg[3]"/>
+					<portRef name="RN" instanceRef="do_reg[2]"/>
+					<portRef name="RN" instanceRef="do_reg[1]"/>
+					<portRef name="RN" instanceRef="do_reg[0]"/>
+				</net>
+				<net name="n1">
+					<portRef name="Y" instanceRef="U34"/>
+					<portRef name="D" instanceRef="do_reg[15]"/>
+				</net>
+				<net name="n2">
+					<portRef name="Y" instanceRef="U26"/>
+					<portRef name="D" instanceRef="do_reg[14]"/>
+				</net>
+				<net name="n3">
+					<portRef name="Y" instanceRef="U25"/>
+					<portRef name="D" instanceRef="do_reg[13]"/>
+				</net>
+				<net name="n4">
+					<portRef name="Y" instanceRef="U24"/>
+					<portRef name="D" instanceRef="do_reg[12]"/>
+				</net>
+				<net name="n5">
+					<portRef name="Y" instanceRef="U23"/>
+					<portRef name="D" instanceRef="do_reg[11]"/>
+				</net>
+				<net name="n6">
+					<portRef name="Y" instanceRef="U22"/>
+					<portRef name="D" instanceRef="do_reg[10]"/>
+				</net>
+				<net name="n7">
+					<portRef name="Y" instanceRef="U21"/>
+					<portRef name="D" instanceRef="do_reg[9]"/>
+				</net>
+				<net name="n8">
+					<portRef name="Y" instanceRef="U20"/>
+					<portRef name="D" instanceRef="do_reg[8]"/>
+				</net>
+				<net name="n9">
+					<portRef name="Y" instanceRef="U19"/>
+					<portRef name="D" instanceRef="do_reg[7]"/>
+				</net>
+				<net name="n10">
+					<portRef name="Y" instanceRef="U33"/>
+					<portRef name="D" instanceRef="do_reg[6]"/>
+				</net>
+				<net name="n11">
+					<portRef name="Y" instanceRef="U32"/>
+					<portRef name="D" instanceRef="do_reg[5]"/>
+				</net>
+				<net name="n12">
+					<portRef name="Y" instanceRef="U31"/>
+					<portRef name="D" instanceRef="do_reg[4]"/>
+				</net>
+				<net name="n13">
+					<portRef name="Y" instanceRef="U30"/>
+					<portRef name="D" instanceRef="do_reg[3]"/>
+				</net>
+				<net name="n14">
+					<portRef name="Y" instanceRef="U29"/>
+					<portRef name="D" instanceRef="do_reg[2]"/>
+				</net>
+				<net name="n15">
+					<portRef name="Y" instanceRef="U28"/>
+					<portRef name="D" instanceRef="do_reg[1]"/>
+				</net>
+				<net name="n16">
+					<portRef name="Y" instanceRef="U27"/>
+					<portRef name="D" instanceRef="do_reg[0]"/>
+				</net>
+			</contents>
+		</module>
+	</library>
+	<topModule name="inverter" libraryRef="work_lib"/>
+</design>
+

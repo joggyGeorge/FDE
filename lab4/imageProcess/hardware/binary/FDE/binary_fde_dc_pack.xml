@@ -1,0 +1,631 @@
+<design name="binary">
+	<external name="template_work_lib">
+		<module name="slice" type="SLICE">
+			<port name="CIN" direction="input"/>
+			<port name="SR" direction="input"/>
+			<port name="CLK" direction="input"/>
+			<port name="CE" direction="input"/>
+			<port name="BX" direction="input"/>
+			<port name="F1" direction="input"/>
+			<port name="F2" direction="input"/>
+			<port name="F3" direction="input"/>
+			<port name="F4" direction="input"/>
+			<port name="F5IN" direction="input"/>
+			<port name="BY" direction="input"/>
+			<port name="G1" direction="input"/>
+			<port name="G2" direction="input"/>
+			<port name="G3" direction="input"/>
+			<port name="G4" direction="input"/>
+			<port name="XQ" direction="output"/>
+			<port name="X" direction="output"/>
+			<port name="F5" direction="output"/>
+			<port name="XB" direction="output"/>
+			<port name="YQ" direction="output"/>
+			<port name="Y" direction="output"/>
+			<port name="YB" direction="output"/>
+			<port name="COUT" direction="output"/>
+		</module>
+		<module name="iob" type="IOB">
+			<port name="TRI" direction="input"/>
+			<port name="TRICE" direction="input"/>
+			<port name="OUT" direction="input"/>
+			<port name="OUTCE" direction="input"/>
+			<port name="INCE" direction="input"/>
+			<port name="CLK" direction="input"/>
+			<port name="SR" direction="input"/>
+			<port name="IN" direction="output"/>
+			<port name="IQ" direction="output"/>
+			<port name="PAD" direction="inout"/>
+		</module>
+		<module name="gclk" type="GCLK">
+			<port name="CE" direction="input"/>
+			<port name="IN" direction="input"/>
+			<port name="OUT" direction="output"/>
+		</module>
+		<module name="gclkiob" type="GCLKIOB">
+			<port name="PAD" direction="inout"/>
+			<port name="GCLKOUT" direction="output"/>
+		</module>
+	</external>
+	<library name="work_lib">
+		<module name="binary">
+			<port name="gray" msb="7" lsb="0" direction="input"/>
+			<port name="clk" direction="input"/>
+			<port name="binary" msb="7" lsb="0" direction="output"/>
+			<contents>
+				<instance name="iSlice__0__" moduleRef="slice" libraryRef="template_work_lib">
+					<config name="BXMUX" value="BX"/>
+					<config name="BYMUX" value="#OFF"/>
+					<config name="CEMUX" value="#OFF"/>
+					<config name="CKINV" value="1"/>
+					<config name="COUTUSED" value="#OFF"/>
+					<config name="CY0F" value="#OFF"/>
+					<config name="CY0G" value="#OFF"/>
+					<config name="CYINIT" value="#OFF"/>
+					<config name="CYSELF" value="#OFF"/>
+					<config name="CYSELG" value="#OFF"/>
+					<config name="DXMUX" value="0"/>
+					<config name="DYMUX" value="#OFF"/>
+					<config name="F" value="#OFF"/>
+					<config name="F5USED" value="#OFF"/>
+					<config name="FFX" value="#FF"/>
+					<config name="FFY" value="#OFF"/>
+					<config name="FXMUX" value="#OFF"/>
+					<config name="G" value="#OFF"/>
+					<config name="GYMUX" value="#OFF"/>
+					<config name="INITX" value="LOW"/>
+					<config name="INITY" value="#OFF"/>
+					<config name="RAMCONFIG" value="#OFF"/>
+					<config name="REVUSED" value="#OFF"/>
+					<config name="SRFFMUX" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="SYNC_ATTR" value="ASYNC"/>
+					<config name="XBUSED" value="#OFF"/>
+					<config name="XUSED" value="#OFF"/>
+					<config name="YBMUX" value="#OFF"/>
+					<config name="YUSED" value="#OFF"/>
+				</instance>
+				<instance name="gray[7]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="#OFF"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="1"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="#OFF"/>
+					<config name="OUTMUX" value="#OFF"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="binary[7]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="12"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="O"/>
+					<config name="OUTMUX" value="1"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="SLOW"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="binary[6]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="12"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="O"/>
+					<config name="OUTMUX" value="1"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="SLOW"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="binary[5]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="12"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="O"/>
+					<config name="OUTMUX" value="1"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="SLOW"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="binary[4]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="12"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="O"/>
+					<config name="OUTMUX" value="1"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="SLOW"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="binary[3]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="12"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="O"/>
+					<config name="OUTMUX" value="1"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="SLOW"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="binary[2]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="12"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="O"/>
+					<config name="OUTMUX" value="1"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="SLOW"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="binary[1]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="12"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="O"/>
+					<config name="OUTMUX" value="1"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="SLOW"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="binary[0]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="12"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="O"/>
+					<config name="OUTMUX" value="1"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="SLOW"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="iGclk_buf__0__" moduleRef="gclk" libraryRef="template_work_lib">
+					<config name="CEMUX" value="1"/>
+					<config name="DISABLE_ATTR" value="LOW"/>
+					<config name="CE_POWER" value="#OFF"/>
+					<config name="GCLK_BUFFER" value="#OFF"/>
+				</instance>
+				<instance name="clk" moduleRef="gclkiob" libraryRef="template_work_lib">
+					<config name="IOATTRBOX" value="LVTTL"/>
+					<config name="GCLK_BUF" value="#OFF"/>
+					<config name="PAD" value="#OFF"/>
+				</instance>
+				<instance name="gray[6]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="#OFF"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="#OFF"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="#OFF"/>
+					<config name="OUTMUX" value="#OFF"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="gray[5]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="#OFF"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="#OFF"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="#OFF"/>
+					<config name="OUTMUX" value="#OFF"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="gray[4]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="#OFF"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="#OFF"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="#OFF"/>
+					<config name="OUTMUX" value="#OFF"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="gray[3]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="#OFF"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="#OFF"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="#OFF"/>
+					<config name="OUTMUX" value="#OFF"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="gray[2]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="#OFF"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="#OFF"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="#OFF"/>
+					<config name="OUTMUX" value="#OFF"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="gray[1]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="#OFF"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="#OFF"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="#OFF"/>
+					<config name="OUTMUX" value="#OFF"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<instance name="gray[0]" moduleRef="iob" libraryRef="template_work_lib">
+					<config name="DRIVEATTRBOX" value="#OFF"/>
+					<config name="FFATTRBOX" value="#OFF"/>
+					<config name="ICEMUX" value="#OFF"/>
+					<config name="ICKINV" value="#OFF"/>
+					<config name="IFF" value="#OFF"/>
+					<config name="IFFINITATTR" value="#OFF"/>
+					<config name="IFFMUX" value="#OFF"/>
+					<config name="IINITMUX" value="#OFF"/>
+					<config name="IMUX" value="#OFF"/>
+					<config name="IOATTRBOX" value="#OFF"/>
+					<config name="OCEMUX" value="#OFF"/>
+					<config name="OCKINV" value="#OFF"/>
+					<config name="OFF" value="#OFF"/>
+					<config name="OFFATTRBOX" value="#OFF"/>
+					<config name="OINITMUX" value="#OFF"/>
+					<config name="OMUX" value="#OFF"/>
+					<config name="OUTMUX" value="#OFF"/>
+					<config name="PULL" value="#OFF"/>
+					<config name="SLEW" value="#OFF"/>
+					<config name="SRMUX" value="#OFF"/>
+					<config name="TCEMUX" value="#OFF"/>
+					<config name="TCKINV" value="#OFF"/>
+					<config name="TFF" value="#OFF"/>
+					<config name="TFFATTRBOX" value="#OFF"/>
+					<config name="TINITMUX" value="#OFF"/>
+					<config name="TRIMUX" value="#OFF"/>
+					<config name="TSEL" value="#OFF"/>
+				</instance>
+				<net name="gray[7]">
+					<portRef name="gray[7]"/>
+					<portRef name="PAD" instanceRef="gray[7]"/>
+				</net>
+				<net name="clk">
+					<portRef name="clk"/>
+					<portRef name="PAD" instanceRef="clk"/>
+				</net>
+				<net name="net_Buf-pad-clk">
+					<portRef name="GCLKOUT" instanceRef="clk"/>
+					<portRef name="IN" instanceRef="iGclk_buf__0__"/>
+				</net>
+				<net name="net_binary_reg[0]">
+					<portRef name="XQ" instanceRef="iSlice__0__"/>
+					<portRef name="OUT" instanceRef="binary[7]"/>
+					<portRef name="OUT" instanceRef="binary[6]"/>
+					<portRef name="OUT" instanceRef="binary[5]"/>
+					<portRef name="OUT" instanceRef="binary[4]"/>
+					<portRef name="OUT" instanceRef="binary[3]"/>
+					<portRef name="OUT" instanceRef="binary[2]"/>
+					<portRef name="OUT" instanceRef="binary[1]"/>
+					<portRef name="OUT" instanceRef="binary[0]"/>
+				</net>
+				<net name="net_Buf-pad-gray[7]">
+					<portRef name="IN" instanceRef="gray[7]"/>
+					<portRef name="BX" instanceRef="iSlice__0__"/>
+				</net>
+				<net name="net_IBuf-clkpad-clk" type="clock">
+					<portRef name="OUT" instanceRef="iGclk_buf__0__"/>
+					<portRef name="CLK" instanceRef="iSlice__0__"/>
+				</net>
+				<net name="binary[7]">
+					<portRef name="PAD" instanceRef="binary[7]"/>
+					<portRef name="binary[7]"/>
+				</net>
+				<net name="binary[6]">
+					<portRef name="PAD" instanceRef="binary[6]"/>
+					<portRef name="binary[6]"/>
+				</net>
+				<net name="binary[5]">
+					<portRef name="PAD" instanceRef="binary[5]"/>
+					<portRef name="binary[5]"/>
+				</net>
+				<net name="binary[4]">
+					<portRef name="PAD" instanceRef="binary[4]"/>
+					<portRef name="binary[4]"/>
+				</net>
+				<net name="binary[3]">
+					<portRef name="PAD" instanceRef="binary[3]"/>
+					<portRef name="binary[3]"/>
+				</net>
+				<net name="binary[2]">
+					<portRef name="PAD" instanceRef="binary[2]"/>
+					<portRef name="binary[2]"/>
+				</net>
+				<net name="binary[1]">
+					<portRef name="PAD" instanceRef="binary[1]"/>
+					<portRef name="binary[1]"/>
+				</net>
+				<net name="binary[0]">
+					<portRef name="PAD" instanceRef="binary[0]"/>
+					<portRef name="binary[0]"/>
+				</net>
+			</contents>
+		</module>
+	</library>
+	<topModule name="binary" libraryRef="work_lib"/>
+</design>
+
