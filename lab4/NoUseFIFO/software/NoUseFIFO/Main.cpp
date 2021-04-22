@@ -29,7 +29,7 @@ int main()
 	const int ClockCount = 170; // run 170 clock cycle
 	const int iBoard = 0;
 	const char* SerialNo = "F4YF-K2II-Y0Z0-AT05-F805-A478";
-	const char* BitFile = R"(..\..\hardware\FDE\lab4_hardware_fde_dc.bit)";
+	const char* BitFile = R"(..\..\hardware\FDE\NoUseFIFO_fde_dc.bit)";
 	hDLL = LoadLibrary(L".\\DLL\\win\\x64\\VLFD.dll");
 	if (!hDLL) {
 		cout << "No Library\n";

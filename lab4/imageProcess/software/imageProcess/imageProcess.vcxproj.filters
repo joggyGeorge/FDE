@@ -20,7 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="gray_fde_dc.bit" />
     <None Include="VLFD.dll" />
   </ItemGroup>
   <ItemGroup>

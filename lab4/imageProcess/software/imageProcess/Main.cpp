@@ -57,7 +57,7 @@ Mat gray(string picture, const char* bitfile)
 
 	namedWindow("test", WINDOW_AUTOSIZE);
 	imshow("test", image);
-	//waitKey();
+	waitKey();
 
 	Mat matout(image.size().height, image.size().width, CV_8U, Scalar(0));
 	
@@ -132,7 +132,7 @@ Mat gray(string picture, const char* bitfile)
 	cout << "type: " << matout.type() << endl;;
 	
 	imshow("test", matout);
-	//waitKey();
+	waitKey();
 	return matout;
 }
 
